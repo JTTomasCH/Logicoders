@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Recuperar Contraseña - LOGICODERS</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Recuperar contraseña de usuario" name="description">
+
+    <!-- Favicon -->
+    <link href="img/logo.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 px-lg-5">
+            <a href="index.html" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary">
+                    <i class="fa fa-truck mr-2"></i>LogiCoders
+                </h1>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Recuperar Contraseña Start -->
+    <section class="login-section py-5">
+        <div class="auth-wrap">
+            <div class="auth-card">
+
+                <!-- Encabezado -->
+                <div class="auth-head">
+                    <div class="logo-badge"><i class="fas fa-unlock-alt"></i></div>
+                    <h3 class="brand-title mb-0">LOGICODERS</h3>
+                </div>
+
+                <!-- Cuerpo -->
+                <div class="auth-body">
+                    <h1>Recuperar Contraseña</h1>
+                    <p>Ingrese su correo registrado para recibir un enlace de recuperación.</p>
+
+                    <form id="resetPasswordForm" novalidate>
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="tu@correo.com" required>
+                            <div class="invalid-feedback">Ingresa un correo válido.</div>
+                        </div>
+
+                        <button class="btn btn-brand btn-block" type="submit">
+                            Enviar enlace de recuperación
+                        </button>
+
+                        <div class="text-center mt-3">
+                            <a href="login.html" class="btn btn-primary btn-block">
+                                Volver a Iniciar Sesión
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Recuperar Contraseña End -->
+
+    <!-- Footer -->
+    <div class="container-fluid bg-dark text-white py-3 text-center">
+        <p class="m-0">&copy; 2025 LogiCoders. Todos los derechos reservados.</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="js/reset.js"></script>
+
+
+</body>
+
+</html>

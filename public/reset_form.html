@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Restablecer Contraseña - LOGICODERS</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Restablecer contraseña de usuario" name="description">
+
+  <!-- Favicon -->
+  <link href="img/logo.png" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Bootstrap y CSS personalizado -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 px-lg-5">
+      <a href="index.html" class="navbar-brand ml-lg-3">
+        <h1 class="m-0 display-5 text-uppercase text-primary">
+          <i class="fa fa-truck mr-2"></i>LogiCoders
+        </h1>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Restablecer Contraseña Start -->
+  <section class="login-section py-5">
+    <div class="auth-wrap">
+      <div class="auth-card">
+
+        <!-- Encabezado -->
+        <div class="auth-head">
+          <div class="logo-badge"><i class="fas fa-unlock-alt"></i></div>
+          <h3 class="brand-title mb-0">LOGICODERS</h3>
+        </div>
+
+        <!-- Cuerpo -->
+        <div class="auth-body">
+          <h1>Restablecer Contraseña</h1>
+          <p>Ingrese su nueva contraseña dos veces.</p>
+
+          <form id="newPasswordForm" novalidate>
+            <!-- Token oculto -->
+            <input type="hidden" id="token" name="token">
+
+            <div class="form-group">
+              <label for="password1">Nueva contraseña</label>
+              <input type="password" class="form-control" id="password1" name="password1" placeholder="Nueva contraseña" required>
+              <div class="invalid-feedback">Ingresa tu nueva contraseña.</div>
+            </div>
+
+            <div class="form-group">
+              <label for="password2">Repetir contraseña</label>
+              <input type="password" class="form-control" id="password2" name="password2" placeholder="Repite la contraseña" required>
+              <div class="invalid-feedback">Las contraseñas deben coincidir.</div>
+            </div>
+
+            <button class="btn btn-brand btn-block" type="submit">Cambiar contraseña</button>
+
+            <div class="text-center mt-3">
+              <a href="login.html" class="btn btn-primary btn-block">Volver a Iniciar Sesión</a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- Restablecer Contraseña End -->
+
+  <!-- Footer -->
+  <div class="container-fluid bg-dark text-white py-3 text-center">
+    <p class="m-0">&copy; 2025 LogiCoders. Todos los derechos reservados.</p>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <script>
+  // Tomar token desde la query: reset_form.html?token=xxxxx
+  const params = new URLSearchParams(location.search);
+  const token = params.get("token");
+  document.getElementById("token").value = token || "";
+
+  // (Opcional) validar token antes de enviar
+  if (token) {
+    fetch(`/api/password/validate?token=${encodeURIComponent(token)}`)
+      .then(r => r.json())
+      .then(j => {
+        if (!j.valid) {
+          alert(j.message || "Token inválido o expirado.");
+          // Opcional: redirigir a la página para solicitar enlace nuevamente
+          // location.href = "/reset.html";
+        }
+      })
+      .catch(() => {});
+  }
+
+  document.getElementById("newPasswordForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const pass1 = document.getElementById("password1").value;
+    const pass2 = document.getElementById("password2").value;
+
+    if (pass1 !== pass2) {
+      alert("Las contraseñas no coinciden");
+      return;
+    }
+    if (!token) {
+      alert("Token faltante.");
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/password/reset", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token, password: pass1 })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        alert(data.message || "No se pudo actualizar.");
+        return;
+      }
+      alert(data.message || "Contraseña actualizada.");
+      location.href = "/login.html";
+    } catch (err) {
+      console.error(err);
+      alert("Error de red.");
+    }
+  });
+</script>
+
+</body>
+</html>
