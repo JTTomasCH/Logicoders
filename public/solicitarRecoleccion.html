@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>LOGICODERS - Solicitar Recolección</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    :root{
+      --brand:#d89d13; --ok:#d59413; --bg:#f6f8fb; --card:#ffffff; --line:#e6ebf3; --muted:#7b8394; --text:#1f2937; --danger:#dc2626;
+      --pse1:#163b74; --pse2:#1a73e8; --pse3:#ffae00;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Poppins,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{max-width:980px;margin:24px auto;padding:0 16px}
+    .card{background:var(--card);border-radius:16px;box-shadow:0 10px 30px rgba(2,8,20,.06);padding:22px;margin-bottom:16px}
+    h1{font-weight:700;font-size:26px;margin:6px 0 4px;text-align:center}
+    .subtitle{text-align:center;color:var(--muted);margin:0 0 16px}
+
+    /* Stepper */
+    .stepper{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:10px 0 16px}
+    .step{display:flex;align-items:center;gap:10px;flex:1;color:var(--muted);font-weight:600}
+    .dot{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--line);background:#fff}
+    .step.active .dot{border-color:var(--ok);background:rgba(47,179,109,.12);color:var(--ok)}
+    .bar{height:2px;background:var(--line);flex:1;border-radius:2px}
+    .bar.active{background:linear-gradient(90deg,var(--ok),#d0a30e)}
+    .hidden{display:none!important}
+
+    /* Layout */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+    @media (max-width: 820px){ .grid-2,.grid-3{grid-template-columns:1fr} }
+
+    .label{font-size:.95rem;color:#4b5563;margin-bottom:6px;display:block}
+    .control{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;outline:none}
+    .control:focus{border-color:#b6d0ff;box-shadow:0 0 0 3px rgba(13,110,253,.08)}
+    .sect-title{display:flex;align-items:center;gap:10px;color:var(--brand);font-weight:700;margin:6px 0 12px}
+    .subhead{font-weight:700;color:#6c7280;background:#f0f3f8;border-radius:8px;padding:10px 12px;margin:6px 0 10px}
+
+    .pill{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;background:#fff;cursor:pointer;user-select:none}
+    .pill.active{border-color:var(--ok);background:#f2fbf6;color:#c86f16}
+    .toggle-group{display:flex;gap:12px;flex-wrap:wrap}
+
+    .actions{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+    .btn{border:none;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer}
+    .btn-soft{background:#eef3ff;color:#2a3a8a}
+    .btn-primary{background:var(--brand);color:#fff}
+    .btn-success{background:var(--ok);color:#fff}
+    .btn[disabled]{opacity:.6;cursor:not-allowed}
+
+    /* Autocomplete */
+    .auto-wrap{position:relative}
+    .auto-list{position:absolute;z-index:9999;top:100%;left:0;right:0;background:#fff;border:1px solid var(--line);border-radius:12px;margin-top:6px;max-height:220px;overflow:auto;box-shadow:0 12px 28px rgba(2,8,20,.08)}
+    .auto-item{padding:10px 12px;cursor:pointer;border-bottom:1px solid #f3f5f9}
+    .auto-item:hover{background:#f4f7ff}
+
+    /* Cotización */
+    .quote{border:1px solid var(--line);border-radius:14px;background:#fbfcff;padding:14px}
+    .quote-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+    .quote-item{display:flex;align-items:center;gap:10px;border:1px dashed var(--line);border-radius:12px;padding:12px}
+    .quote-item .icon{font-size:22px;color:#ec930d}
+    .price{font-size:1.6rem;color:#ec930d;font-weight:800;text-align:right}
+    .muted{color:#6b7280;font-size:.9rem}
+
+    /* Tarjeta del destinatario en el resumen */
+    .recipient{display:grid;grid-template-columns:1fr 1fr;gap:10px;border:1px dashed var(--line);border-radius:12px;padding:12px;background:#fff}
+    @media (max-width: 820px){ .recipient{grid-template-columns:1fr} }
+    .badge{display:inline-block;background:#eef3ff;color:#2a3a8a;border-radius:999px;padding:4px 10px;font-size:.8rem;font-weight:700}
+
+    /* PSE */
+    .pse-head{display:flex;align-items:center;gap:12px;margin:8px 0 12px}
+    .pse-badge{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:44px;height:44px;border-radius:12px;
+      background:radial-gradient(100% 100% at 20% 0%, var(--pse3) 0%, var(--pse2) 40%, var(--pse1) 100%);
+      color:#fff;font-weight:900;letter-spacing:.5px;text-transform:uppercase;
+      box-shadow:0 6px 16px rgba(26,115,232,.22);
+    }
+    .pse-card{border:1px dashed var(--line);border-radius:14px;padding:14px;background:linear-gradient(180deg,#fff, #f9fbff)}
+    .help{font-size:.9rem;color:#6b7280}
+    .err{color:var(--danger);font-size:.9rem;margin-top:6px;display:none}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Solicitar recolección</h1>
+    <p class="subtitle">Completa tu solicitud en 3 pasos. Si pagas <b>en línea</b>, verás un 4º paso solo con pago PSE.</p>
+
+    <!-- Stepper -->
+    <div class="card" style="margin-bottom:14px">
+      <div class="stepper" id="stepper">
+        <div class="step active"><div class="dot">1</div><span>Remitente • Producto • Destino</span></div>
+        <div class="bar"></div>
+        <div class="step"><div class="dot">2</div><span>Peso • Cantidad</span></div>
+        <div class="bar"></div>
+        <div class="step"><div class="dot">3</div><span>Programación</span></div>
+        <div class="bar hidden" id="bar4"></div>
+        <div class="step hidden" id="tab4"><div class="dot">4</div><span>Pago en línea</span></div>
+      </div>
+    </div>
+
+    <form id="wizard">
+      <!-- PASO 1 -->
+      <div class="card" id="step1">
+        <div class="sect-title"><i class="fas fa-user"></i> Datos del remitente</div>
+        <div class="grid-2">
+          <div><label class="label">Nombre</label><input id="rem_name" class="control" required /></div>
+          <div><label class="label">Cédula</label><input id="rem_id" class="control" inputmode="numeric" pattern="\d{8,12}" title="La cédula debe tener entre 8 y 12 dígitos" required /></div>
+          <div><label class="label">Teléfono</label><input id="rem_phone" class="control" inputmode="numeric" pattern="(3\d{9}|\d{7,10})" title="Celular 10 dígitos o fijo 7–10" required /></div>
+          <div><label class="label">Email</label><input id="rem_email" class="control" type="email" required /></div>
+          <div class="grid-2" style="grid-column:1/-1">
+            <div><label class="label">Dirección</label><input id="rem_address" class="control" required /></div>
+            <div class="auto-wrap">
+              <label class="label">Ciudad de origen</label>
+              <input id="city_from" class="control" autocomplete="off" required />
+              <div id="auto_from" class="auto-list hidden"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sect-title"><i class="fas fa-box-open"></i> Producto</div>
+        <div class="toggle-group" id="prod_group">
+          <div class="pill active" data-value="Documentos"><i class="far fa-file-alt"></i> Documentos</div>
+          <div class="pill" data-value="Paquetes"><i class="fas fa-box"></i> Paquetes</div>
+        </div>
+
+        <div class="grid-2" style="margin-top:10px">
+          <div>
+            <label class="label">Forma de pago</label>
+            <select id="payment_method" class="control" required>
+              <option value="">Seleccione…</option>
+              <option value="Contado">Contado</option>
+              <option value="Cobro">Cobro (contraentrega)</option>
+              <option value="En línea">En línea</option>
+            </select>
+          </div>
+          <div>
+            <label class="label">Tiempo</label>
+            <select id="delivery_time" class="control" required>
+              <option value="">Seleccione…</option>
+              <option>Normal</option>
+              <option>Urgente</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:10px">
+          <div class="auto-wrap">
+            <label class="label">Ciudad de destino</label>
+            <input id="city_to" class="control" autocomplete="off" required />
+            <div id="auto_to" class="auto-list hidden"></div>
+          </div>
+          <div>
+            <label class="label">Valor declarado</label>
+            <input id="declared_value" class="control" type="number" min="0" required />
+          </div>
+        </div>
+
+        <div class="sect-title"><i class="fas fa-user-friends"></i> Destinatario</div>
+        <div class="grid-2">
+          <div><label class="label">Nombre</label><input id="dest_name" class="control" required /></div>
+          <div><label class="label">Cédula</label><input id="dest_id" class="control" inputmode="numeric" pattern="\d{8,12}" title="La cédula debe tener entre 8 y 12 dígitos" required /></div>
+          <div><label class="label">Teléfono</label><input id="dest_phone" class="control" inputmode="numeric" pattern="(3\d{9}|\d{7,10})" title="Celular 10 dígitos o fijo 7–10" required /></div>
+          <div><label class="label">Dirección</label><input id="dest_address" class="control" required /></div>
+        </div>
+
+        <div class="actions">
+          <span></span>
+          <button type="button" class="btn btn-primary" id="next1">Siguiente</button>
+        </div>
+      </div>
+
+      <!-- PASO 2 -->
+      <div class="card hidden" id="step2">
+        <div id="dimsSection" class="hidden">
+          <div class="subhead">DIMENSIONES PIEZA MÁS GRANDE</div>
+          <div class="grid-3">
+            <div><label class="label">Largo máximo (cm)</label><input id="dim_len" class="control" type="number" min="1" step="1" /></div>
+            <div><label class="label">Alto máximo (cm)</label><input id="dim_height" class="control" type="number" min="1" step="1" /></div>
+            <div><label class="label">Ancho máximo (cm)</label><input id="dim_width" class="control" type="number" min="1" step="1" /></div>
+          </div>
+        </div>
+
+        <div class="subhead">PESO PIEZAS</div>
+        <div class="grid-3">
+          <div><label class="label">Peso total (Kg)</label><input id="w_total" class="control" type="number" step="0.1" min="0" required /></div>
+          <div><label class="label">Pieza más grande (Kg)</label><input id="w_biggest" class="control" type="number" step="0.1" min="0" required /></div>
+          <div><label class="label">Cantidad de envíos</label><input id="qty" class="control" type="number" min="1" step="1" required /></div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-soft" id="back2">Atrás</button>
+          <button type="button" class="btn btn-primary" id="next2">Siguiente</button>
+        </div>
+      </div>
+
+      <!-- PASO 3 -->
+      <div class="card hidden" id="step3">
+        <div class="sect-title"><i class="far fa-calendar-alt"></i> Programación de la recolección</div>
+        <div class="grid-3">
+          <div><label class="label">Fecha</label><input id="pk_date" class="control" type="date" required /></div>
+          <div><label class="label">Hora sugerida</label><select id="pk_hour" class="control" required></select></div>
+          <div><label class="label">Observaciones</label><textarea id="notes" class="control" rows="1" placeholder="Escribe aquí"></textarea></div>
+        </div>
+
+        <p class="muted" style="margin-top:12px">* Por favor cancelar este valor al momento de que se realice la recolección; es un valor aproximado y no corresponde al costo final real.</p>
+
+        <!-- Resultado cotización -->
+        <div class="subhead" style="text-align:center;margin-top:16px">RESULTADO COTIZACIÓN</div>
+        <div class="quote">
+          <div class="quote-row">
+            <div class="quote-item"><i class="fas fa-box-open icon"></i><div><div class="muted">Tipo de producto</div><div id="q_product" style="font-weight:700">—</div></div></div>
+            <div class="quote-item"><i class="far fa-clock icon"></i><div><div class="muted">Tiempo de entrega</div><div id="q_time" style="font-weight:700">—</div></div></div>
+            <div class="quote-item"><i class="fas fa-truck icon"></i><div><div class="muted">Tipo de transporte</div><div id="q_transport" style="font-weight:700">Terrestre</div></div></div>
+          </div>
+
+          <!-- Destinatario en resumen -->
+          <div class="subhead" style="margin-top:14px">DATOS DEL DESTINATARIO</div>
+          <div class="recipient">
+            <div><div class="muted">Nombre</div><div id="q_dest_name" style="font-weight:700">—</div></div>
+            <div><div class="muted">Teléfono</div><div id="q_dest_phone" style="font-weight:700">—</div></div>
+            <div><div class="muted">Dirección</div><div id="q_dest_address" style="font-weight:700;word-break:break-word">—</div></div>
+            <div><div class="muted">Ciudad de destino</div><div id="q_dest_city" class="badge">—</div></div>
+          </div>
+
+          <hr style="border:none;border-top:1px solid var(--line);margin:14px 0">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div class="muted">Distancia estimada: <span id="q_distance">—</span> · Peso total: <span id="q_weight">—</span></div>
+            <div class="price" id="q_price">$ —</div>
+          </div>
+          <div class="muted" id="q_hint" style="margin-top:6px"></div>
+        </div>
+
+        <div class="actions" style="margin-top:16px">
+          <button type="button" class="btn btn-soft" id="back3">Atrás</button>
+          <button type="button" class="btn btn-success" id="finishOrNext">Confirmar</button>
+        </div>
+      </div>
+
+      <!-- PASO 4 Pago - SOLO PSE -->
+      <div class="card hidden" id="step4">
+        <div class="sect-title"><i class="fas fa-credit-card"></i> Pago en línea</div>
+
+        <div class="pse-head">
+          <div class="pse-badge">pse</div>
+          <div>
+            <div style="font-weight:800">PSE - Débito desde tu banco</div>
+            <div class="help">Serás redirigido a tu banco para autorizar de forma segura.</div>
+          </div>
+        </div>
+
+        <div class="pse-card">
+          <div class="subhead">RESUMEN DEL COBRO</div>
+          <div class="grid-3" style="margin-bottom:10px">
+            <div><div class="muted">Valor a pagar</div><div id="pay_amount" style="font-weight:800;font-size:1.2rem">$ —</div></div>
+            <div><div class="muted">Referencia</div><div id="pay_ref" style="font-weight:700">—</div></div>
+            <div><div class="muted">Correo de confirmación</div><div id="pay_email_show" style="font-weight:700">—</div></div>
+          </div>
+
+          <div class="subhead">DATOS PARA PSE</div>
+          <div class="grid-3">
+            <div><label class="label">Titular</label><input id="pse_name" class="control" placeholder="Nombre del titular" /></div>
+            <div>
+              <label class="label">Tipo de documento</label>
+              <select id="pse_doc_type" class="control">
+                <option value="">Seleccione…</option>
+                <option value="CC">CC - Cédula de ciudadanía</option>
+                <option value="CE">CE - Cédula de extranjería</option>
+                <option value="NIT">NIT</option>
+                <option value="PP">Pasaporte</option>
+              </select>
+            </div>
+            <div><label class="label">Número de documento</label><input id="pse_doc" class="control" inputmode="numeric" pattern="\d{6,12}" placeholder="Solo números, 6–12 dígitos" title="Solo números, 6–12 dígitos" /></div>
+          </div>
+
+          <div class="grid-2" style="margin-top:10px">
+            <div>
+              <label class="label">Seleccione su banco</label>
+              <select id="pse_bank" class="control">
+                <option value="">Seleccione su banco…</option>
+              </select>
+            </div>
+            <div>
+              <label class="label">Correo</label>
+              <input id="pse_email" class="control" type="email" placeholder="Correo para comprobante" />
+            </div>
+          </div>
+
+          <div class="err" id="pse_err"></div>
+
+          <div style="margin-top:12px">
+            <label style="display:flex;gap:8px;align-items:flex-start">
+              <input id="pay_terms" type="checkbox" style="margin-top:4px">
+              <span>Acepto los términos y condiciones del pago y autorizo el tratamiento de mis datos para procesar esta transacción.</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-soft" id="back4">Atrás</button>
+          <button type="submit" class="btn btn-success">Pagar y enviar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const $ = q=>document.querySelector(q);
+    const show = sel => $(sel).classList.remove('hidden');
+    const hide = sel => $(sel).classList.add('hidden');
+
+    function goToPanel(rid){
+      const url = `${window.location.origin}/panelRemitente.html?rid=${encodeURIComponent(rid)}`;
+      console.log('➡️ Redirigiendo a:', url);
+      window.location.replace(url);
+    }
+
+    /* === Cargar ID de usuario del localStorage === */
+    (function primeUserId(){
+      try {
+        const u = JSON.parse(localStorage.getItem('user') || '{}');
+        window.__USER_ID__ = Number(u.id) || null;   // <- número o null
+        // (opcional) debug:
+        console.log('USER_ID:', window.__USER_ID__, 'user:', u);
+      } catch(e){
+        window.__USER_ID__ = null;
+      }
+    })();
+
+    /* === Config de API === */
+    const BASE_API = '/api'; // si tu API vive detrás de /api
+    const endpoints = {
+      ciudadesBuscar: q => `${BASE_API}/ciudades/buscar?q=${encodeURIComponent(q)}&full=1`,
+      ciudadesGeo: label => `${BASE_API}/ciudades/geo?label=${encodeURIComponent(label)}`,
+      recolecciones: `${BASE_API}/recolecciones`,
+      pagosCrear: `${BASE_API}/pagos/crear`
+    };
+
+    /* ====== FECHA mínima = mañana (local) ====== */
+    function ymdLocal(d){ const y=d.getFullYear(), m=String(d.getMonth()+1).padStart(2,'0'), day=String(d.getDate()).padStart(2,'0'); return `${y}-${m}-${day}`; }
+    function getMinPickupDate(){ const d = new Date(); d.setDate(d.getDate() + 1); return ymdLocal(d); }
+    (function setMinDate(){ $('#pk_date').min = getMinPickupDate(); })();
+    document.addEventListener('DOMContentLoaded', ()=>{ const input=$('#pk_date'); input.addEventListener('change', ()=>{ const min=getMinPickupDate(); if (input.value && input.value < min){ alert('La fecha de recolección debe ser desde mañana en adelante.'); input.value=min; } }); });
+
+    /* ====== Horas ====== */
+    (function loadHours(){ const sel=$('#pk_hour'); for (let h=7; h<=15; h++){ for (const m of [0,30]){ if (h===15 && m===30) continue; const hh=String(h).padStart(2,'0'), mm=String(m).padStart(2,'0'); const opt=document.createElement('option'); opt.value=`${hh}:${mm}`; opt.textContent=`${hh}:${mm}`; sel.appendChild(opt); }}})();
+
+    /* ====== Autocomplete con coords del backend ====== */
+    async function resolveGeoFromLabel(inputEl){
+      const label=(inputEl.value||'').trim(); if(!label) return;
+      try{
+        const res=await fetch(endpoints.ciudadesGeo(label));
+        if(!res.ok) return;
+        const g=await res.json();
+        if(g && typeof g.lat==='number' && typeof g.lng==='number'){
+          inputEl.dataset.lat=g.lat; inputEl.dataset.lng=g.lng; updateQuote();
+        }
+      }catch(e){}
+    }
+    function mountAutocomplete(inputId,listId){
+      const input=$(inputId), list=$(listId); let t;
+      input.addEventListener("input", ()=>{
+        clearTimeout(t);
+        const q=input.value.trim();
+        if(q.length<2){ list.innerHTML=""; list.classList.add("hidden"); return; }
+        t=setTimeout(async ()=>{
+          try{
+            const res=await fetch(endpoints.ciudadesBuscar(q));
+            if(!res.ok){ list.innerHTML=""; list.classList.add("hidden"); return; }
+            const data=await res.json();
+            if(!Array.isArray(data) || !data.length){
+              list.innerHTML="<div class='auto-item' style='pointer-events:none;color:#6b7280'>Sin resultados</div>";
+              list.classList.remove("hidden");
+              return;
+            }
+            list.innerHTML=data.map(c=>`<div class="auto-item" data-lat="${c.lat??''}" data-lng="${c.lng??''}">${c.label}</div>`).join("");
+            list.classList.remove("hidden");
+            list.querySelectorAll(".auto-item").forEach(it=>{
+              it.onclick=()=>{
+                input.value=it.textContent.trim();
+                const {lat,lng}=it.dataset;
+                if(lat && lng){ input.dataset.lat=lat; input.dataset.lng=lng; } else { delete input.dataset.lat; delete input.dataset.lng; }
+                list.classList.add("hidden");
+                updateQuote();
+              };
+            });
+          }catch(e){ list.innerHTML=""; list.classList.add("hidden"); }
+        },200);
+      });
+      input.addEventListener("blur", ()=>{ setTimeout(()=>list.classList.add("hidden"),150); resolveGeoFromLabel(input); });
+      input.addEventListener("focus", ()=>{ if(list.innerHTML.trim()!=="") list.classList.remove("hidden"); });
+    }
+    mountAutocomplete("#city_from","#auto_from");
+    mountAutocomplete("#city_to","#auto_to");
+
+    /* ====== Producto ====== */
+    let prodType="Documentos";
+    document.querySelectorAll("#prod_group .pill").forEach(p=>{
+      p.addEventListener("click", ()=>{
+        document.querySelectorAll("#prod_group .pill").forEach(x=>x.classList.remove("active"));
+        p.classList.add("active"); prodType=p.dataset.value;
+        if(prodType==="Paquetes"){ show("#dimsSection"); ["#dim_len","#dim_height","#dim_width"].forEach(sel=>$(sel).setAttribute("required","required")); }
+        else { hide("#dimsSection"); ["#dim_len","#dim_height","#dim_width"].forEach(sel=>{ $(sel).removeAttribute("required"); $(sel).value=""; }); }
+        updateQuote();
+      });
+    });
+
+    /* ====== Navegación y validación ====== */
+    function goto(step){ const steps=[...document.querySelectorAll(".stepper .step")]; const bars=[...document.querySelectorAll(".stepper .bar")]; steps.forEach((s,i)=>s.classList.toggle("active", i<=step-1)); bars.forEach((b,i)=>b.classList.toggle("active", i<step-1)); }
+
+    $("#next1").onclick=()=>{ const ids=['rem_name','rem_id','rem_phone','rem_email','rem_address','city_from','city_to','dest_name','dest_id','dest_phone','dest_address','declared_value','payment_method','delivery_time']; for(const id of ids){ const el=$(`#${id}`); if(!el.checkValidity()){ el.reportValidity(); return; } } hide("#step1"); show("#step2"); goto(2); };
+    $("#back2").onclick=()=>{ hide("#step2"); show("#step1"); goto(1); };
+    $("#next2").onclick=()=>{ const wT=parseFloat($('#w_total').value||0), wB=parseFloat($('#w_biggest').value||0); if(prodType==="Documentos"){ if(wT<1||wT>2){ alert("Para Documentos, el peso total debe estar entre 1 y 2 kg."); return; } if(wB<1||wB>2){ alert("Para Documentos, la pieza más grande debe estar entre 1 y 2 kg."); return; } } else { const L=+($('#dim_len').value||0), H=+($('#dim_height').value||0), W=+($('#dim_width').value||0); if(!(L>0&&H>0&&W>0)){ alert("Para Paquetes, debes ingresar Largo/Alto/Ancho (cm) mayores a 0."); return; } } hide("#step2"); show("#step3"); goto(3); updateQuote(); };
+    $("#back3").onclick=()=>{ hide("#step3"); show("#step2"); goto(2); };
+    $("#back4").onclick=()=>{ hide("#step4"); show("#step3"); goto(2); };
+
+    function hasCoords(input){ const lat=parseFloat(input.dataset.lat), lng=parseFloat(input.dataset.lng); return Number.isFinite(lat)&&Number.isFinite(lng); }
+    function validateAll(){
+      const req1=['rem_name','rem_id','rem_phone','rem_email','rem_address','city_from','city_to','dest_name','dest_id','dest_phone','dest_address','declared_value','payment_method','delivery_time'];
+      for(const id of req1){ const el=$(`#${id}`); if(!el.checkValidity()){ el.reportValidity(); el.focus(); return false; } }
+      if(!hasCoords($('#city_from'))||!hasCoords($('#city_to'))){ alert("Selecciona las ciudades desde la lista para tener la ubicación exacta."); return false; }
+      const wT=+($('#w_total').value||0), wB=+($('#w_biggest').value||0);
+      if(!$('#w_total').checkValidity()||!$('#w_biggest').checkValidity()||!$('#qty').checkValidity()){ $('#w_total').reportValidity(); $('#w_biggest').reportValidity(); $('#qty').reportValidity(); return false; }
+      if(prodType==="Documentos"){ if(wT<1||wT>2||wB<1||wB>2){ alert("Para Documentos: Peso total y pieza más grande deben estar entre 1 y 2 kg."); return false; } }
+      else { const L=+($('#dim_len').value||0), H=+($('#dim_height').value||0), W=+($('#dim_width').value||0); if(!(L>0&&H>0&&W>0)){ alert("Para Paquetes: Largo, Alto y Ancho deben ser mayores a 0."); return false; } }
+      const min=getMinPickupDate(); if(!$('#pk_date').checkValidity()||$('#pk_date').value<min){ alert('La fecha de recolección debe ser desde mañana en adelante.'); $('#pk_date').value=min; return false; }
+      if(!$('#pk_hour').checkValidity()){ $('#pk_hour').reportValidity(); return false; }
+      return true;
+    }
+
+    /* ====== Cotización ====== */
+    function haversineKm(a,b){ const R=6371, dLat=(b.lat-a.lat)*Math.PI/180, dLng=(b.lng-a.lng)*Math.PI/180; const s1=Math.sin(dLat/2)**2 + Math.cos(a.lat*Math.PI/180)*Math.cos(b.lat*Math.PI/180)*Math.sin(dLng/2)**2; return 2*R*Math.asin(Math.sqrt(s1)); }
+    function getPointFromInput(input){ const lat=parseFloat(input.dataset.lat), lng=parseFloat(input.dataset.lng); return (Number.isFinite(lat)&&Number.isFinite(lng))?{lat,lng}:null; }
+    let currentQuote=null;
+    function calcQuote(){
+      const fromPoint=getPointFromInput($('#city_from')), toPoint=getPointFromInput($('#city_to')); let hint="";
+      let distanceKm=300; if(fromPoint&&toPoint){ distanceKm=Math.max(1,Math.round(haversineKm(fromPoint,toPoint))); } else { hint="Usando distancia estimada por no reconocer alguna ciudad."; }
+      const weight=Math.max(0, +($('#w_total').value||0)); const base=9000, perKm=60, perKgPack=1200;
+      let price=base + distanceKm*perKm; if(prodType==="Paquetes") price += weight*perKgPack;
+      const timeSel=$('#delivery_time').value||"Normal"; if(timeSel==="Urgente") price*=1.2; price=Math.max(price,12000);
+      let eta="24–48 horas"; if(distanceKm<=100) eta="24 horas"; else if(distanceKm<=450) eta="24–48 horas"; else eta="48–72 horas";
+      return (currentQuote={product:(prodType==="Documentos"?"Documentos":"Paquetes"), time:(timeSel==="Urgente")?`${eta} (urgente)`:eta, transport:"Terrestre", distanceKm, weight, price:Math.round(price), hint});
+    }
+    function formatCOP(n){ return n.toLocaleString("es-CO",{style:"currency",currency:"COP",maximumFractionDigits:0}); }
+    function updateQuote(){
+      const q=calcQuote();
+      $('#q_product').textContent=q.product; $('#q_time').textContent=q.time; $('#q_transport').textContent=q.transport;
+      $('#q_distance').textContent=`${q.distanceKm} km`; $('#q_weight').textContent=`${q.weight||0} kg`; $('#q_price').textContent=formatCOP(q.price); $('#q_hint').textContent=q.hint;
+      $('#q_dest_name').textContent=$('#dest_name').value||'—'; $('#q_dest_phone').textContent=$('#dest_phone').value||'—'; $('#q_dest_address').textContent=$('#dest_address').value||'—'; $('#q_dest_city').textContent=$('#city_to').value||'—';
+    }
+    ['city_from','city_to','w_total','delivery_time','dest_name','dest_phone','dest_address'].forEach(id=>{ const el=$(`#${id}`); el.addEventListener('input',updateQuote); el.addEventListener('change',updateQuote); });
+
+    /* ====== PSE: bancos + validación ====== */
+    const BANKS = [
+      "BANCO DE BOGOTA","BANCO POPULAR","BANCO ITAU","BANCOLOMBIA","CITIBANK","BANCO GNB SUDAMERIS",
+      "BANCO BBVA COLOMBIA S.A.","SCOTIABANK COLPATRIA","BANCO DE OCCIDENTE","BANCO CAJA SOCIAL","BANCO AGRARIO","BANCO MUNDO MUJER S.A.",
+      "BANCO DAVIVIENDA","BANCO AV VILLAS","BANCAMIA S.A.","BANCO PICHINCHA S.A.","BANCOOMEVA S.A.","BANCO FALABELLA",
+      "BANCO FINANDINA S.A. BIC","BANCO SANTANDER COLOMBIA","BANCO COOPERATIVO COOPCENTRAL","BANCO SERFINANZA","LULO BANK","BANCO J.P. MORGAN COLOMBIA S.A.",
+      "DALE","FINANCIERA JURISCOOP SA COMPAÑÍA DE FINANCIAMIENTO","CFA COOPERATIVA FINANCIERA","JFK COOPERATIVA FINANCIERA","COTRAFA","CONFIAR COOPERATIVA FINANCIERA",
+      "BANCO UNION antes GIROS","COLTEFINANCIERA","NEQUI","DAVIPLATA","BAN100","IRIS",
+      "MOVII S.A.","DING","POWWI","UALÁ","BOLD CF","NU","RAPPIPAY","COINK SA","GLOBAL66","ALIANZA FIDUCIARIA","CREZCAMOS MOSI"
+    ];
+    (function loadBanks(){ const sel=$('#pse_bank'); BANKS.forEach(b=>{ const opt=document.createElement('option'); opt.value=b; opt.textContent=b; sel.appendChild(opt); }); })();
+
+    function makeRef(){ const L='ABCDEFGHIJKLMNOPQRSTUVWXYZ'; const a=L[Math.random()*26|0], b=L[Math.random()*26|0], c=L[Math.random()*26|0], n=(100+Math.random()*900|0); return `R-${a}${b}${c}${n}`; }
+    function fillPaymentSummary(){
+      if(!currentQuote) calcQuote();
+      $('#pay_amount').textContent=formatCOP(currentQuote.price);
+      $('#pay_ref').textContent=makeRef();
+      $('#pay_email_show').textContent=$('#rem_email').value||'—';
+      $('#pse_name').value=$('#rem_name').value||'';
+      $('#pse_doc_type').value='CC';
+      $('#pse_doc').value=$('#rem_id').value||'';
+      $('#pse_email').value=$('#rem_email').value||'';
+      $('#pse_err').style.display='none';
+      $('#pay_terms').checked=false;
+    }
+    function validatePayment(){
+      const name=$('#pse_name').value.trim();
+      const dt=$('#pse_doc_type').value;
+      const doc=$('#pse_doc').value.trim();
+      const bank=$('#pse_bank').value;
+      const mail=$('#pse_email').value.trim();
+      let msg=[];
+      if(!name) msg.push("• Ingresa el titular");
+      if(!dt) msg.push("• Selecciona el tipo de documento");
+      if(!/^\d{6,12}$/.test(doc)) msg.push("• Documento inválido (6–12 dígitos)");
+      if(!bank) msg.push("• Selecciona tu banco");
+      if(!/^\S+@\S+\.\S+$/.test(mail)) msg.push("• Correo inválido");
+      if(!$('#pay_terms').checked) msg.push("• Debes aceptar los términos y condiciones");
+      if(msg.length){ $('#pse_err').innerHTML=msg.join("<br>"); $('#pse_err').style.display='block'; return false; }
+      $('#pse_err').style.display='none';
+      return { method:'PSE', name, doc_type:dt, doc, bank, email:mail, amount: currentQuote?.price || 0, ref: $('#pay_ref').textContent };
+    }
+
+    function setBusy(btn, busy){
+      btn.disabled = !!busy;
+      const t = btn.dataset.text || btn.textContent;
+      if(!btn.dataset.text) btn.dataset.text = t;
+      btn.textContent = busy ? 'Procesando…' : btn.dataset.text;
+    }
+
+    /* ====== Guardar en DB al confirmar (Paso 3) ====== */
+    $("#finishOrNext").onclick = async (ev) => {
+      if (!validateAll()) return;
+      const btn = ev.currentTarget; setBusy(btn, true);
+
+      const quote = currentQuote || calcQuote();
+      const user_id = window.__USER_ID__ || null; // quita si backend usa req.user.id
+
+      const payload = {
+        user_id,
+        product_type: (prodType === "Documentos" ? "Documentos" : "Paquetes"),
+        delivery_time: $('#delivery_time').value,
+        transport_type: "Terrestre",
+        payment_method: $('#payment_method').value,
+        pickup_date: $('#pk_date').value,
+        pickup_hour: $('#pk_hour').value + ":00",
+        distance_km: quote.distanceKm,
+        price_cop: quote.price,
+        declared_value: Number($('#declared_value').value || 0),
+        notes: ($('#notes').value || null),
+        remitente: {
+          nombre: $('#rem_name').value,
+          doc_numero: $('#rem_id').value,
+          telefono: $('#rem_phone').value,
+          email: $('#rem_email').value,
+          direccion: $('#rem_address').value,
+          ciudad_origen: $('#city_from').value
+        },
+        destinatario: {
+          nombre: $('#dest_name').value,
+          doc_numero: $('#dest_id').value,
+          telefono: $('#dest_phone').value,
+          direccion: $('#dest_address').value,
+          ciudad_destino: $('#city_to').value
+        }
+      };
+
+      try {
+        const res = await fetch(endpoints.recolecciones, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          alert("No se pudo crear la recolección: " + (data.message || res.statusText));
+          setBusy(btn, false);
+          return;
+        }
+        window.__RECOLECCION_ID__ = data.recoleccion_id;
+
+        if ($('#payment_method').value === "En línea") {
+          fillPaymentSummary();
+          hide("#step3"); show("#step4"); show("#bar4"); show("#tab4"); goto(4);
+        } else {
+          alert("Solicitud de recolección creada ✅\nN°: " + data.recoleccion_id);
+          window.location.href = `panelRemitente.html?rid=${encodeURIComponent(data.recoleccion_id)}`;
+        }
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setBusy(btn, false);
+      }
+    };
+
+    /* ====== Submit final (Pago PSE) ====== */
+    document.getElementById("wizard").onsubmit = async (e) => {
+      e.preventDefault();
+
+      // Si NO es pago en línea, validar y salir normal
+      if ($('#payment_method').value !== 'En línea') {
+        if (!validateAll()) return;
+        alert("Solicitud enviada ✅ (sin pago en línea)");
+        return;
+      }
+
+      // Pago en línea (PSE)
+      if (!validateAll()) return;
+      const payData = validatePayment();
+      if (!payData) return;
+
+      const recoleccion_id = window.__RECOLECCION_ID__;
+      if (!recoleccion_id) {
+        alert("No se encontró el ID de la recolección. Intenta de nuevo.");
+        return;
+      }
+
+      const body = {
+        recoleccion_id,
+        method: 'PSE',
+        payer_name: payData.name,
+        payer_doc_type: payData.doc_type,
+        payer_doc: payData.doc,
+        payer_email: payData.email,
+        bank_name: payData.bank,
+        amount_cop: payData.amount,
+        reference: payData.ref
+      };
+
+      const submitBtn = document.querySelector('#step4 button[type="submit"]');
+      setBusy(submitBtn, true);
+      try {
+        const res = await fetch(endpoints.pagosCrear, {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify(body)
+        });
+        const data = await res.json();
+        if (!res.ok) { alert("No se pudo iniciar el pago: " + (data.message || res.statusText)); return; }
+
+        const ref = data.reference || body.reference || '—';
+        alert(`Pago PSE creado ✅\nReferencia: ${ref}\nRecolección: ${recoleccion_id}`);
+        goToPanel(recoleccion_id);
+      } catch (e) {
+        console.error(e);
+        alert("Ocurrió un error iniciando el pago. Intenta nuevamente.");
+      } finally {
+        setBusy(submitBtn, false);
+      }
+    };
+  </script>
+</body>
+</html>

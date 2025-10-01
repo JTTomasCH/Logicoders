@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>LOGICODERS - Panel Remitente</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="Panel de remitente LogiCoders" name="description">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="icon" href="img/favicon.ico">
+
+  <style>
+    :root{
+      --brand:#e4940a; --brand-2:#e0680d; --ok:#16a34a; --danger:#dc2626;
+      --bg:#f6f8fb; --card:#ffffff; --line:#e6ebf3; --muted:#6b7280; --text:#1f2937;
+      --ink:#0f172a;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Poppins,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text)}
+
+    /* Topbar */
+    .topbar{background:linear-gradient(90deg,#111827,#1f2937); color:#e5e7eb}
+    .topbar a{color:#e5e7eb; opacity:.9}
+    .topbar a:hover{opacity:1}
+
+    /* Navbar */
+    .navbar-brand h1{font-weight:800; letter-spacing: .5px}
+    .text-primary{color:var(--brand)!important}
+    .btn-outline-primary{border-color:var(--brand); color:var(--brand)}
+    .btn-outline-primary:hover{background:var(--brand); color:#fff}
+    .btn-brand{background:var(--brand); color:#fff; border:none}
+    .btn-brand:hover{background:#e5790d; color:#fff}
+
+    /* Hero / Header */
+    .hero{
+      padding:40px 0 10px;
+      background:
+        radial-gradient(1200px 300px at 50% -100px, rgba(216,157,19,.18), transparent 50%),
+        linear-gradient(180deg,#fff, #f9fbff 30%, #f6f8fb);
+      border-bottom:1px solid var(--line);
+    }
+
+    /* Cards */
+    .card-ui{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(2,8,20,.06);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .card-ui:hover{transform:translateY(-2px); box-shadow:0 14px 34px rgba(2,8,20,.10)}
+    .card-ui .icon{
+      width:48px; height:48px; border-radius:12px;
+      display:grid; place-items:center;
+      background:rgba(216,157,19,.12); color:var(--brand); font-size:20px;
+    }
+    .muted{color:var(--muted)}
+    .badge-soft{
+      background:#fff7e6; color:#8a4b00; border:1px solid #ffe5b4; font-weight:700;
+      padding:.28rem .6rem; border-radius:999px; font-size:.78rem;
+    }
+
+    /* Alert success (query) */
+    .alert-success.soft{
+      background:#ecfdf5; border-color:#bbf7d0; color:#065f46; border-radius:14px;
+    }
+
+    /* Footer */
+    .footer{
+      background:#111827; color:#cbd5e1; border-top:1px solid #0b1220
+    }
+
+    /* Logout dropdown (simple) */
+    .user-chip{
+      display:inline-flex; align-items:center; gap:.6rem;
+      padding:.45rem .8rem; border-radius:999px; border:1px solid var(--line); background:#fff;
+      box-shadow:0 4px 14px rgba(2,8,20,.06); font-weight:600; color:#111827;
+    }
+    .user-chip .avatar{
+      width:28px; height:28px; border-radius:50%; display:grid; place-items:center;
+      background:rgba(216,157,19,.15); color:#8a5b00; font-weight:800;
+    }
+
+    /* Utility */
+    .link-arrow{font-weight:700}
+    .link-arrow i{transition:transform .15s ease}
+    .link-arrow:hover i{transform:translateX(3px)}
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="row py-2">
+        <div class="col-md-6 text-center text-md-left mb-2 mb-md-0">
+          <div class="d-inline-flex align-items-center">
+            <small class="mr-3"><i class="fa fa-phone-alt mr-2"></i>+57 320 456 7890</small>
+            <small><i class="fa fa-envelope mr-2"></i>logicoders@gmail.com</small>
+          </div>
+        </div>
+        <div class="col-md-6 text-center text-md-right">
+          <div class="d-inline-flex align-items-center">
+            <a class="px-2" href="#"><i class="fab fa-facebook-f"></i></a>
+            <a class="px-2" href="#"><i class="fab fa-twitter"></i></a>
+            <a class="px-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a class="px-2" href="#"><i class="fab fa-instagram"></i></a>
+            <a class="pl-2" href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a href="index.html" class="navbar-brand">
+        <h1 class="m-0 text-uppercase text-primary">
+          <i class="fa fa-truck mr-2"></i>LogiCoders
+        </h1>
+      </a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+        <div class="navbar-nav m-auto py-0">
+          <a href="solicitarRecoleccion.html" class="nav-item nav-link">
+            <i class="fas fa-box mr-2"></i> Solicitar recolección
+          </a>
+        </div>
+
+        <div class="navbar-nav align-items-center">
+          <div class="nav-item mr-2">
+            <span id="userChip" class="user-chip" title="Perfil">
+              <span class="avatar" id="userAvatar">U</span>
+              <span id="userName">Usuario</span>
+            </span>
+          </div>
+          <a id="btnLogout" class="btn btn-outline-primary">Cerrar sesión</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container text-center">
+      <h2 class="font-weight-bold mb-2">Tu Panel de Remitente</h2>
+      <p class="lead text-muted mb-0">Gestiona tus <b>solicitudes</b>, programa nuevas <b>recolecciones</b> y administra tu <b>perfil</b>.</p>
+      <div class="mt-4">
+        <a href="solicitarRecoleccion.html" class="btn btn-brand btn-lg">
+          <i class="fas fa-truck-loading mr-2"></i> Solicitar recolección ahora
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mensaje de éxito por query -->
+  <section class="py-3" id="successWrap" style="display:none;">
+    <div class="container">
+      <div class="alert alert-success soft d-flex align-items-start">
+        <div class="mr-2"><i class="far fa-check-circle fa-lg"></i></div>
+        <div>
+          <div class="font-weight-bold mb-1">¡Solicitud registrada correctamente!</div>
+          <div class="mb-0" id="successText"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid de acciones -->
+  <main class="py-4">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-6 mb-4">
+          <div class="card-ui p-4 h-100">
+            <div class="d-flex align-items-center mb-3">
+              <div class="icon mr-3"><i class="fas fa-clipboard-list"></i></div>
+              <div>
+                <h5 class="mb-1">Mis solicitudes</h5>
+                <div class="muted">Consulta el estado de tus recolecciones.</div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge-soft"><i class="fas fa-circle mr-1" style="font-size:.6rem"></i> Seguimiento</span>
+              <a href="misSolicitudes.html" class="link-arrow">Abrir <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+          <div class="card-ui p-4 h-100">
+            <div class="d-flex align-items-center mb-3">
+              <div class="icon mr-3"><i class="fas fa-box-open"></i></div>
+              <div>
+                <h5 class="mb-1">Nueva recolección</h5>
+                <div class="muted">Programa una recogida a domicilio.</div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge-soft"><i class="fas fa-bolt mr-1" style="font-size:.6rem"></i> Rápido</span>
+              <a href="solicitarRecoleccion.html" class="link-arrow">Crear <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+          <div class="card-ui p-4 h-100">
+            <div class="d-flex align-items-center mb-3">
+              <div class="icon mr-3"><i class="far fa-user"></i></div>
+              <div>
+                <h5 class="mb-1">Mi perfil</h5>
+                <div class="muted">Actualiza tus datos y preferencias.</div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge-soft"><i class="fas fa-user-check mr-1" style="font-size:.6rem"></i> Verificado</span>
+              <a href="perfil.html" class="link-arrow">Editar <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+          <div class="card-ui p-4 h-100">
+            <div class="d-flex align-items-center mb-3">
+              <div class="icon mr-3"><i class="far fa-life-ring"></i></div>
+              <div>
+                <h5 class="mb-1">Ayuda y soporte</h5>
+                <div class="muted">Preguntas frecuentes y contacto.</div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge-soft"><i class="fas fa-book mr-1" style="font-size:.6rem"></i> Guías</span>
+              <a href="ayuda.html" class="link-arrow">Abrir <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer py-3">
+    <div class="container text-center">
+      <p class="m-0">&copy; 2025 LogiCoders. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- JS Libs -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script dinámico -->
+  <script>
+    function getQuery(){
+      const q = {};
+      location.search.replace(/^\?/,'').split('&').forEach(p=>{
+        if(!p) return;
+        const [k,v] = p.split('=');
+        q[decodeURIComponent(k)] = decodeURIComponent((v||'').replace(/\+/g,' '));
+      });
+      return q;
+    }
+    function showSuccessFromQuery(){
+      const q = getQuery();
+      if(!q.rid) return;
+      const msg = [
+        `N° de solicitud: <b>${q.rid}</b>`,
+        q.ref ? `· Referencia de pago: <b>${q.ref}</b>` : null,
+        q.paid ? '· Estado: <b>Pago iniciado</b>' : null
+      ].filter(Boolean).join(' ');
+      document.getElementById('successText').innerHTML = msg;
+      document.getElementById('successWrap').style.display = 'block';
+    }
+    function initialsOf(name){
+      if(!name) return 'U';
+      const parts = name.trim().split(/\s+/).slice(0,2);
+      return parts.map(p=>p[0]?.toUpperCase()||'').join('') || 'U';
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Cargar usuario
+      let userName = 'Usuario';
+      try {
+        const userData = JSON.parse(localStorage.getItem("user") || "{}");
+        if (userData.name) userName = userData.name;
+        window.__USER_ID__ = Number(userData.id) || null;
+      } catch (e) {
+        window.__USER_ID__ = null;
+      }
+
+      // Pintar chip
+      document.getElementById("userName").textContent = userName;
+      document.getElementById("userAvatar").textContent = initialsOf(userName);
+
+      // Mostrar éxito si viene de confirmar/ pagar
+      showSuccessFromQuery();
+
+      // Logout
+      document.getElementById("btnLogout").addEventListener("click", (e) => {
+        e.preventDefault();
+        try {
+          localStorage.removeItem("user");
+        } catch(_){}
+        alert("Has cerrado sesión correctamente.");
+        window.location.href = "index.html";
+      });
+
+      // Permitir ir al perfil al hacer click en el chip
+      document.getElementById("userChip").addEventListener("click", () => {
+        window.location.href = "perfil.html";
+      });
+    });
+  </script>
+</body>
+</html>
