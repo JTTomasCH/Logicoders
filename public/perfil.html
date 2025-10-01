@@ -1,0 +1,1043 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>LOGICODERS - Mi Perfil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="Perfil del remitente en LogiCoders" name="description">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="icon" href="img/logo.png">
+
+  <style>
+    :root{
+      --brand:#e4940a; --brand-2:#e0680d; --ok:#16a34a; --danger:#dc2626;
+      --bg:#f6f8fb; --card:#ffffff; --line:#e6ebf3; --muted:#6b7280; --text:#1f2937;
+      --ink:#0f172a;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Poppins,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text)}
+
+    .topbar{background:linear-gradient(90deg,#111827,#1f2937); color:#e5e7eb}
+    .topbar a{color:#e5e7eb; opacity:.9}
+    .topbar a:hover{opacity:1}
+
+    /* Navbar */
+    .navbar-brand h1{font-weight:800; letter-spacing:.5px}
+    .text-primary{color:var(--brand)!important}
+    .btn-outline-primary{border-color:var(--brand); color:var(--brand)}
+    .btn-outline-primary:hover{background:var(--brand); color:#fff}
+    .btn-brand{background:var(--brand); color:#fff; border:none}
+    .btn-brand:hover{background:#e5790d; color:#fff}
+
+    /* Hero / Header */
+    .hero{
+      padding:40px 0 30px;
+      background:
+        radial-gradient(1200px 300px at 50% -100px, rgba(216,157,19,.18), transparent 50%),
+        linear-gradient(180deg,#fff, #f9fbff 30%, #f6f8fb);
+      border-bottom:1px solid var(--line);
+    }
+    .hero .stat-pill{
+      display:flex; flex-direction:column; align-items:flex-start;
+      padding:.75rem 1.25rem; margin-right:1rem; border-radius:14px;
+      background:#fff; border:1px solid var(--line); box-shadow:0 10px 28px rgba(2,8,20,.08);
+      min-width:150px;
+    }
+    .hero .stat-pill:last-child{margin-right:0}
+    .stat-pill .label{font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); font-weight:600}
+    .stat-pill .value{font-size:1.4rem; font-weight:700; color:var(--brand)}
+
+    /* Cards */
+    .card-ui{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(2,8,20,.06);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .card-ui:hover{transform:translateY(-2px); box-shadow:0 14px 34px rgba(2,8,20,.10)}
+    .card-ui .icon{
+      width:48px; height:48px; border-radius:12px;
+      display:grid; place-items:center;
+      background:rgba(216,157,19,.12); color:var(--brand); font-size:20px;
+    }
+
+    .muted{color:var(--muted)}
+    .badge-soft{
+      background:#fff7e6; color:#8a4b00; border:1px solid #ffe5b4; font-weight:700;
+      padding:.28rem .6rem; border-radius:999px; font-size:.78rem;
+    }
+    .badge-soft.small{font-size:.68rem; padding:.2rem .55rem}
+
+    .user-chip{
+      display:inline-flex; align-items:center; gap:.6rem;
+      padding:.45rem .8rem; border-radius:999px; border:1px solid var(--line); background:#fff;
+      box-shadow:0 4px 14px rgba(2,8,20,.06); font-weight:600; color:#111827;
+      cursor:pointer;
+    }
+    .user-chip .avatar{
+      width:28px; height:28px; border-radius:50%; display:grid; place-items:center;
+      background:rgba(216,157,19,.15); color:#8a5b00; font-weight:800;
+    }
+
+    .profile-avatar{
+      width:64px; height:64px; border-radius:18px; display:grid; place-items:center;
+      background:rgba(216,157,19,.12); color:var(--brand); font-weight:700; font-size:1.5rem;
+    }
+    .profile-chip{display:inline-flex; align-items:center; gap:.75rem}
+
+    .divider{height:1px; background:var(--line); margin:1.5rem 0}
+    .info-line{display:flex; align-items:flex-start; margin-bottom:.6rem}
+    .info-line:last-child{margin-bottom:0}
+    .info-line i{width:22px; margin-right:.5rem; color:var(--brand); font-size:.95rem; line-height:1.4}
+
+    .form-section-title{font-size:.85rem; text-transform:uppercase; color:var(--muted); letter-spacing:.04em; font-weight:600; margin-bottom:.4rem}
+    .font-weight-semibold{font-weight:600}
+
+    .timeline{position:relative; padding-left:1.5rem; list-style:none; margin:0}
+    .timeline::before{content:""; position:absolute; left:6px; top:0; bottom:0; width:2px; background:var(--line)}
+    .timeline-item{position:relative; margin-bottom:1.2rem}
+    .timeline-item:last-child{margin-bottom:0}
+    .timeline-item .dot{position:absolute; left:-1.5rem; top:0.35rem; width:10px; height:10px; border-radius:50%; background:var(--brand)}
+    .timeline-item .title{font-weight:600; margin-bottom:.2rem}
+    .timeline-item .time{font-size:.75rem; color:var(--muted)}
+
+    .addresses-list{margin:0; padding:0; list-style:none}
+    .addresses-list .address-item{padding:.9rem 0; border-bottom:1px solid var(--line)}
+    .addresses-list .address-item:last-child{border-bottom:none}
+    .address-item.default{background:rgba(228,148,10,.08); border-radius:12px; padding:1rem; margin-bottom:.75rem}
+    .address-item .actions button{font-size:.78rem}
+
+    .small-note{font-size:.78rem; color:var(--muted)}
+
+    .alert-inline{display:none}
+    .alert-inline.active{display:flex}
+
+    .link-arrow{font-weight:700}
+    .link-arrow i{transition:transform .15s ease}
+    .link-arrow:hover i{transform:translateX(3px)}
+
+    .password-box{display:none; background:#fff; border:1px solid var(--line); border-radius:14px; padding:1.25rem 1.5rem;}
+    .password-box.active{display:block;}
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="row py-2">
+        <div class="col-md-6 text-center text-md-left mb-2 mb-md-0">
+          <div class="d-inline-flex align-items-center">
+            <small class="mr-3"><i class="fa fa-phone-alt mr-2"></i>+57 320 456 7890</small>
+            <small><i class="fa fa-envelope mr-2"></i>logicoders@gmail.com</small>
+          </div>
+        </div>
+        <div class="col-md-6 text-center text-md-right">
+          <div class="d-inline-flex align-items-center">
+            <a class="px-2" href="#"><i class="fab fa-facebook-f"></i></a>
+            <a class="px-2" href="#"><i class="fab fa-twitter"></i></a>
+            <a class="px-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a class="px-2" href="#"><i class="fab fa-instagram"></i></a>
+            <a class="pl-2" href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a href="index.html" class="navbar-brand">
+        <h1 class="m-0 text-uppercase text-primary">
+          <i class="fa fa-truck mr-2"></i>LogiCoders
+        </h1>
+      </a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+        <div class="navbar-nav m-auto py-0">
+          <a href="panelRemitente.html" class="nav-item nav-link">
+            <i class="fas fa-th-large mr-2"></i>Panel remitente
+          </a>
+          <a href="solicitarRecoleccion.html" class="nav-item nav-link">
+            <i class="fas fa-box mr-2"></i>Solicitar recoleccion
+          </a>
+          <a href="perfil.html" class="nav-item nav-link active">
+            <i class="far fa-user mr-2"></i>Mi perfil
+          </a>
+        </div>
+
+        <div class="navbar-nav align-items-center">
+          <div class="nav-item mr-2">
+            <span id="userChip" class="user-chip" title="Editar perfil">
+              <span class="avatar" id="userAvatar">U</span>
+              <span id="userName">Usuario</span>
+            </span>
+          </div>
+          <a id="btnLogout" class="btn btn-outline-primary">Cerrar sesion</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 text-center text-lg-left">
+          <span class="badge-soft mb-3">Perfil remitente</span>
+          <h2 class="font-weight-bold mb-2">Hola, <span id="heroName">Usuario</span></h2>
+          <p class="lead text-muted mb-3">Mantiene actualizada tu informacion de contacto para que tus envios salgan sin retrasos.</p>
+          <div class="d-flex flex-wrap justify-content-center justify-content-lg-start">
+            <div class="stat-pill mb-2">
+              <span class="label">Solicitudes activas</span>
+              <span class="value" id="statActive">0</span>
+            </div>
+            <div class="stat-pill mb-2">
+              <span class="label">Entregas completadas</span>
+              <span class="value" id="statDelivered">0</span>
+            </div>
+            <div class="stat-pill mb-2">
+              <span class="label">Pendientes de pago</span>
+              <span class="value" id="statPending">0</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 mt-4 mt-lg-0 text-center text-lg-right">
+          <div class="card-ui p-4 d-inline-block text-left">
+            <span class="badge-soft mb-2" id="profileTier">Remitente</span>
+            <div class="profile-chip">
+              <div class="profile-avatar" id="heroAvatar">U</div>
+              <div>
+                <div class="font-weight-bold" id="cardName">Usuario</div>
+                <div class="muted small">Remitente LogiCoders</div>
+              </div>
+            </div>
+            <div class="small-note mt-3 mb-1">Ultima actualizacion</div>
+            <div class="font-weight-semibold" id="lastUpdated">Sin actualizar</div>
+            <div class="small-note mt-3">Revisa tus datos al menos una vez por trimestre.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card-ui p-4 mb-4" id="summaryCard">
+            <div class="d-flex align-items-center mb-3">
+              <div class="profile-avatar" id="profileAvatar">U</div>
+              <div class="ml-3">
+                <h5 class="mb-1" id="profileName">Usuario</h5>
+                <div class="muted" id="profileCompany">Empresa no registrada</div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div>
+              <div class="form-section-title">Contacto directo</div>
+              <div class="info-line"><i class="far fa-envelope"></i><div id="profileEmail">usuario@correo.com</div></div>
+              <div class="info-line"><i class="fas fa-phone-alt"></i><div id="profilePhone">Sin telefono</div></div>
+              <div class="info-line"><i class="far fa-address-card"></i><div id="profileDoc">Documento no registrado</div></div>
+            </div>
+            <div class="divider"></div>
+            <div>
+              <div class="form-section-title">Preferencias</div>
+              <ul class="list-unstyled mb-0">
+                <li class="info-line"><i class="far fa-check-circle"></i><div id="prefEmail">Email activado</div></li>
+                <li class="info-line"><i class="far fa-check-circle"></i><div id="prefSms">SMS desactivado</div></li>
+                <li class="info-line"><i class="far fa-check-circle"></i><div id="prefWhatsapp">WhatsApp activado</div></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-ui p-4 mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <h6 class="font-weight-bold mb-0">Actividad reciente</h6>
+              <a href="panelRemitente.html" class="link-arrow small"><i class="fas fa-external-link-alt mr-1"></i>Ver panel</a>
+            </div>
+            <p class="small-note mb-3">Seguimiento de los ultimos eventos relacionados con tu cuenta.</p>
+            <ul class="timeline" id="activityList"></ul>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="card-ui p-4 mb-4">
+            <h5 class="font-weight-bold mb-3">Actualizar datos de contacto</h5>
+            <div id="formFeedback" class="alert alert-success soft align-items-center alert-inline">
+              <i class="far fa-check-circle fa-lg mr-2"></i>
+              <div id="feedbackText">Cambios guardados.</div>
+            </div>
+            <form id="profileForm" novalidate>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputName">Nombre completo</label>
+                  <input type="text" class="form-control" id="inputName" placeholder="Ej: Maria Gomez" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputEmail">Email principal</label>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="nombre@empresa.com" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputPhone">Telefono</label>
+                  <input type="tel" class="form-control" id="inputPhone" placeholder="+57 300 000 0000">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputCompany">Empresa</label>
+                  <input type="text" class="form-control" id="inputCompany" placeholder="LogiCoders SAS">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-5">
+                  <label for="inputDocType">Tipo de documento</label>
+                  <select class="form-control" id="inputDocType">
+                    <option value="">Selecciona una opcion</option>
+                    <option value="CC">Cedula de ciudadania</option>
+                    <option value="NIT">NIT</option>
+                    <option value="CE">Cedula de extranjeria</option>
+                    <option value="PAS">Pasaporte</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-7">
+                  <label for="inputDocNumber">Numero de documento</label>
+                  <input type="text" class="form-control" id="inputDocNumber" placeholder="000000000">
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="togglePassword">
+                  <label class="custom-control-label" for="togglePassword">Quiero cambiar mi contrasena</label>
+                </div>
+                <small class="small-note d-block mt-1">Marca la opcion solo si deseas actualizar tu contrasena.</small>
+              </div>
+              <div id="changePasswordFields" class="password-box mb-3">
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputCurrentPassword">Contrasena actual</label>
+                    <input type="password" class="form-control" id="inputCurrentPassword" placeholder="Contrasena actual">
+                    <small class="small-note mt-1 mb-0">La necesitamos para confirmar tu identidad.</small>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNewPassword">Nueva contrasena</label>
+                    <input type="password" class="form-control" id="inputNewPassword" placeholder="Min. 6 caracteres">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputConfirmPassword">Confirma la contrasena</label>
+                    <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Repite la contrasena">
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap align-items-center justify-content-between">
+                <div class="small-note" id="unsavedHint" style="display:none;">Tienes cambios sin guardar.</div>
+                <div class="mt-3 mt-lg-0">
+                  <button type="button" class="btn btn-outline-primary mr-2" id="btnReset">Descartar</button>
+                  <button type="submit" class="btn btn-brand">Guardar cambios</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="card-ui p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="font-weight-bold mb-0">Direcciones guardadas</h6>
+              <button type="button" class="btn btn-outline-primary btn-sm" id="btnAddAddress">
+                <i class="fas fa-plus mr-1"></i>Agregar
+              </button>
+            </div>
+            <ul class="addresses-list" id="addressesList"></ul>
+            <p class="small-note mt-3 mb-0">Estas direcciones aparecen como opciones rapidas al solicitar recolecciones.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer py-3">
+    <div class="container text-center">
+      <p class="m-0">&copy; 2025 LogiCoders. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- JS Libs -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script dinamico -->
+  <script>
+    (function(){
+      const DEFAULT_USER = {
+        id: null,
+        name: "Usuario",
+        email: "usuario@correo.com",
+        phone: "",
+        company: "",
+        docType: "",
+        docNumber: "",
+        address: "",
+        pickupNotes: "",
+        preferedPickup: "domicilio",
+        preferences: {
+          notifyEmail: true,
+          notifySms: false,
+          notifyWhatsapp: true
+        },
+        addresses: [],
+        activity: [],
+        tier: "Remitente",
+        updatedAt: null
+      };
+
+      const DEFAULT_ACTIVITY = [
+        {
+          title: "Perfil listo",
+          detail: "Revisa y completa tus datos para comenzar a programar recolecciones.",
+          icon: "fa-user-check",
+          date: new Date().toISOString()
+        },
+        {
+          title: "Sugerencia",
+          detail: "Agrega tu direccion principal para acelerar tus solicitudes.",
+          icon: "fa-map-marker-alt",
+          date: null
+        }
+      ];
+
+      const MAX_ACTIVITY_ITEMS = 6;
+
+      function normalizeUser(source){
+        const base = source && typeof source === "object" ? { ...source } : {};
+        if (base && Object.prototype.hasOwnProperty.call(base, "password")) {
+          delete base.password;
+        }
+        const prefs = base && typeof base.preferences === "object" ? base.preferences : {};
+        const addresses = Array.isArray(base.addresses) ? base.addresses.filter(Boolean) : [];
+        const activity = Array.isArray(base.activity) ? base.activity.filter(Boolean) : [];
+        return {
+          ...DEFAULT_USER,
+          ...base,
+          preferences: {
+            ...DEFAULT_USER.preferences,
+            ...prefs
+          },
+          addresses: addresses,
+          activity: activity,
+          updatedAt: base.updatedAt || DEFAULT_USER.updatedAt
+        };
+      }
+
+      function loadUser(){
+        try {
+          const stored = JSON.parse(localStorage.getItem("user") || "{}");
+          if (!stored.email) {
+            return normalizeUser({});
+          }
+          return normalizeUser(stored);
+        } catch (err) {
+          console.error('Error loading user:', err);
+          return normalizeUser({});
+        }
+      }
+
+      function initialsOf(name){
+        if(!name) return "U";
+        return name.trim().split(/\s+/).slice(0,2).map(part => part.charAt(0).toUpperCase()).join("") || "U";
+      }
+
+      function formatDoc(user){
+        if (!user.docType && !user.docNumber) return "Documento no registrado";
+        const typeLabel = {
+          "CC": "Cedula de ciudadania",
+          "NIT": "NIT",
+          "CE": "Cedula de extranjeria",
+          "PAS": "Pasaporte"
+        }[user.docType] || "Documento";
+        if (!user.docNumber) return typeLabel;
+        return typeLabel + " • " + user.docNumber;
+      }
+
+      function formatDateTime(iso){
+        if(!iso) return "Sin actualizar";
+        const date = new Date(iso);
+        if(Number.isNaN(date.getTime())) return "Sin actualizar";
+        const day = String(date.getDate()).padStart(2, "0");
+        const monthNames = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+        const month = monthNames[date.getMonth()];
+        const hours = String(date.getHours()).padStart(2, "0");
+        const minutes = String(date.getMinutes()).padStart(2, "0");
+        return day + "/" + month + " " + hours + ":" + minutes;
+      }
+
+      function formatRelative(iso){
+        const date = new Date(iso || "");
+        if (!iso || Number.isNaN(date.getTime())) return "hace instantes";
+        const diff = Date.now() - date.getTime();
+        const units = [
+          { ms: 1000 * 60 * 60 * 24 * 30, label: "m" },
+          { ms: 1000 * 60 * 60 * 24 * 7, label: "sem" },
+          { ms: 1000 * 60 * 60 * 24, label: "d" },
+          { ms: 1000 * 60 * 60, label: "h" },
+          { ms: 1000 * 60, label: "min" }
+        ];
+        for (const unit of units) {
+          if (diff >= unit.ms) {
+            const value = Math.floor(diff / unit.ms);
+            return "hace " + value + " " + unit.label;
+          }
+        }
+        return "hace instantes";
+      }
+
+      const elements = {
+        userName: document.getElementById("userName"),
+        userAvatar: document.getElementById("userAvatar"),
+        heroName: document.getElementById("heroName"),
+        heroAvatar: document.getElementById("heroAvatar"),
+        cardName: document.getElementById("cardName"),
+        profileName: document.getElementById("profileName"),
+        profileCompany: document.getElementById("profileCompany"),
+        profileEmail: document.getElementById("profileEmail"),
+        profilePhone: document.getElementById("profilePhone"),
+        profileDoc: document.getElementById("profileDoc"),
+        prefEmail: document.getElementById("prefEmail"),
+        prefSms: document.getElementById("prefSms"),
+        prefWhatsapp: document.getElementById("prefWhatsapp"),
+        statActive: document.getElementById("statActive"),
+        statDelivered: document.getElementById("statDelivered"),
+        statPending: document.getElementById("statPending"),
+        lastUpdated: document.getElementById("lastUpdated"),
+        formFeedback: document.getElementById("formFeedback"),
+        feedbackText: document.getElementById("feedbackText"),
+        unsavedHint: document.getElementById("unsavedHint"),
+        activityList: document.getElementById("activityList"),
+        addressesList: document.getElementById("addressesList"),
+        profileAvatar: document.getElementById("profileAvatar"),
+        profileTier: document.getElementById("profileTier")
+      };
+
+      const form = document.getElementById("profileForm");
+      if (!form) return;
+
+      const inputs = {
+        name: document.getElementById("inputName"),
+        email: document.getElementById("inputEmail"),
+        phone: document.getElementById("inputPhone"),
+        company: document.getElementById("inputCompany"),
+        docType: document.getElementById("inputDocType"),
+        docNumber: document.getElementById("inputDocNumber"),
+        currentPassword: document.getElementById("inputCurrentPassword"),
+        newPassword: document.getElementById("inputNewPassword"),
+        confirmPassword: document.getElementById("inputConfirmPassword")
+      };
+
+      const btnReset = document.getElementById("btnReset");
+      const btnAddAddress = document.getElementById("btnAddAddress");
+      const addressesList = elements.addressesList;
+      const userChip = document.getElementById("userChip");
+      const btnLogout = document.getElementById("btnLogout");
+      const togglePassword = document.getElementById("togglePassword");
+      const changePasswordFields = document.getElementById("changePasswordFields");
+
+      let currentUser = loadUser();
+      let hasUnsavedChanges = false;
+
+      window.__USER_ID__ = Number(currentUser.id) || null;
+
+      function computeMetrics(){
+        const metrics = { active: 0, delivered: 0, pending: 0 };
+        try {
+          const shipments = JSON.parse(localStorage.getItem("shipments") || "[]");
+          if (Array.isArray(shipments)) {
+            shipments.forEach(item => {
+              if (!item || typeof item !== "object") return;
+              const status = (item.status || "").toLowerCase();
+              if (status.includes("transit") || status.includes("curso") || status.includes("proceso")) {
+                metrics.active += 1;
+              } else if (status.includes("entreg")) {
+                metrics.delivered += 1;
+              }
+              if ((item.paymentStatus || "").toLowerCase() !== "pagado") {
+                metrics.pending += 1;
+              }
+            });
+          }
+        } catch (err) {
+          console.warn("No se pudieron leer las metricas de envios", err);
+        }
+        elements.statActive.textContent = metrics.active;
+        elements.statDelivered.textContent = metrics.delivered;
+        elements.statPending.textContent = metrics.pending;
+      }
+
+      function updateUserChip(user){
+        const initials = initialsOf(user.name);
+        elements.userName.textContent = user.name || "Usuario";
+        elements.userAvatar.textContent = initials;
+        elements.heroName.textContent = user.name || "Usuario";
+        elements.heroAvatar.textContent = initials;
+        elements.cardName.textContent = user.name || "Usuario";
+        elements.profileName.textContent = user.name || "Usuario";
+        if (elements.profileAvatar) {
+          elements.profileAvatar.textContent = initials;
+        }
+      }
+
+      function updateProfileSummary(user){
+        const company = user.company ? user.company : "Empresa no registrada";
+        elements.profileCompany.textContent = company;
+        elements.profileEmail.textContent = user.email || "Sin correo";
+        elements.profilePhone.textContent = user.phone || "Sin telefono";
+        elements.profileDoc.textContent = formatDoc(user);
+      }
+
+      function updatePreferencesSummary(user){
+        const prefs = user.preferences || DEFAULT_USER.preferences;
+        elements.prefEmail.textContent = prefs.notifyEmail ? "Recibe actualizaciones por correo" : "Correo desactivado";
+        elements.prefSms.textContent = prefs.notifySms ? "Recibe alertas por SMS" : "SMS desactivado";
+        elements.prefWhatsapp.textContent = prefs.notifyWhatsapp ? "Recibe confirmaciones por WhatsApp" : "WhatsApp desactivado";
+      }
+
+      function updateTierBadge(user){
+        if (!elements.profileTier) return;
+        const tier = user.tier || (user.company ? "Empresarial" : "Remitente");
+        elements.profileTier.textContent = tier;
+      }
+
+      function updateLastUpdated(user){
+        elements.lastUpdated.textContent = formatDateTime(user.updatedAt);
+      }
+
+      function resetPasswordFields(){
+        if (!inputs.currentPassword) return;
+        inputs.currentPassword.value = "";
+        inputs.newPassword.value = "";
+        inputs.confirmPassword.value = "";
+      }
+
+      function setPasswordBox(show){
+        if (!changePasswordFields) return;
+        const shouldShow = Boolean(show);
+        changePasswordFields.classList.toggle("active", shouldShow);
+        if (shouldShow) {
+          inputs.currentPassword.required = true;
+          inputs.newPassword.required = true;
+          inputs.confirmPassword.required = true;
+        } else {
+          inputs.currentPassword.required = false;
+          inputs.newPassword.required = false;
+          inputs.confirmPassword.required = false;
+          resetPasswordFields();
+        }
+      }
+
+      function fillForm(user){
+        inputs.name.value = user.name || "";
+        inputs.email.value = user.email || "";
+        inputs.phone.value = user.phone || "";
+        inputs.company.value = user.company || "";
+        inputs.docType.value = user.docType || "";
+        inputs.docNumber.value = user.docNumber || "";
+        if (togglePassword) {
+          togglePassword.checked = false;
+        }
+        setPasswordBox(false);
+        toggleUnsaved(false);
+      }
+
+      function toggleUnsaved(state){
+        hasUnsavedChanges = state;
+        if (elements.unsavedHint) {
+          elements.unsavedHint.style.display = state ? "block" : "none";
+        }
+      }
+
+      function getFormSnapshot(){
+        return {
+          ...currentUser,
+          name: (inputs.name.value || "").trim(),
+          email: (inputs.email.value || "").trim(),
+          phone: (inputs.phone.value || "").trim(),
+          company: (inputs.company.value || "").trim(),
+          docType: inputs.docType.value,
+          docNumber: (inputs.docNumber.value || "").trim()
+        };
+      }
+
+      function renderActivity(user){
+        const list = elements.activityList;
+        if (!list) return;
+        list.innerHTML = "";
+        const data = user.activity && user.activity.length ? user.activity : DEFAULT_ACTIVITY;
+        data.slice(0, MAX_ACTIVITY_ITEMS).forEach(item => {
+          const li = document.createElement("li");
+          li.className = "timeline-item";
+          const icon = item.icon || "fa-user-cog";
+          li.innerHTML = `
+            <span class="dot"></span>
+            <div class="title"><i class="fas ${icon} mr-2 text-primary"></i>${item.title || "Actualizacion"}</div>
+            <div class="small-note mb-0">${item.detail || ""}</div>
+            <div class="time">${formatRelative(item.date)}</div>
+          `;
+          list.appendChild(li);
+        });
+      }
+
+      function renderAddresses(user){
+        const list = addressesList;
+        if (!list) return;
+        list.innerHTML = "";
+        const addresses = Array.isArray(user.addresses) && user.addresses.length ? user.addresses : (
+          user.address ? [{ label: "Direccion principal", address: user.address, isDefault: true }] : []
+        );
+        if (!addresses.length) {
+          const empty = document.createElement("li");
+          empty.className = "address-item small-note";
+          empty.textContent = "Aun no has guardado direcciones.";
+          list.appendChild(empty);
+          return;
+        }
+        addresses.forEach((addr, index) => {
+          const li = document.createElement("li");
+          li.className = "address-item" + (addr.isDefault ? " default" : "");
+          li.innerHTML = `
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <div class="font-weight-bold mb-1">${addr.label || ("Direccion " + (index + 1))}</div>
+                <div class="small-note mb-0">${addr.address || "Sin direccion"}</div>
+              </div>
+              <div class="actions text-right">
+                ${addr.isDefault ? `<span class="badge-soft small">Predeterminada</span>` : `<button class="btn btn-link p-0" data-action="set-default" data-index="${index}">Predeterminar</button>`}
+                <button class="btn btn-link text-danger p-0 ml-3" data-action="remove" data-index="${index}">Eliminar</button>
+              </div>
+            </div>
+          `;
+          list.appendChild(li);
+        });
+      }
+
+      function saveUser(user){
+        currentUser = {
+          ...currentUser,
+          ...user,
+          preferences: {
+            ...currentUser.preferences,
+            ...(user.preferences || {})
+          }
+        };
+        currentUser.updatedAt = new Date().toISOString();
+        if ("password" in currentUser) {
+          delete currentUser.password;
+        }
+        localStorage.setItem("user", JSON.stringify(currentUser));
+        updateUserChip(currentUser);
+        updateProfileSummary(currentUser);
+        updatePreferencesSummary(currentUser);
+        updateTierBadge(currentUser);
+        updateLastUpdated(currentUser);
+        renderActivity(currentUser);
+        renderAddresses(currentUser);
+        computeMetrics();
+      }
+
+      function showFeedback(message, variant){
+        if (!elements.formFeedback) return;
+        const classes = elements.formFeedback.classList;
+        classes.remove("alert-success", "alert-info", "alert-danger");
+        if (variant === "info") {
+          classes.add("alert-info");
+        } else if (variant === "danger") {
+          classes.add("alert-danger");
+        } else {
+          classes.add("alert-success");
+        }
+        elements.feedbackText.textContent = message;
+        elements.formFeedback.classList.add("active");
+        setTimeout(() => elements.formFeedback.classList.remove("active"), 3200);
+      }
+
+      function registerActivity(entry){
+        const activity = Array.isArray(currentUser.activity) ? currentUser.activity.slice() : [];
+        const prepared = {
+          title: entry.title || "Actualizacion",
+          detail: entry.detail || "",
+          icon: entry.icon || "fa-user-cog",
+          date: new Date().toISOString()
+        };
+        activity.unshift(prepared);
+        currentUser.activity = activity.slice(0, MAX_ACTIVITY_ITEMS);
+        localStorage.setItem("user", JSON.stringify(currentUser));
+        renderActivity(currentUser);
+      }
+
+      async function updatePasswordOnServer(currentPassword, newPassword){
+        const token = localStorage.getItem("token");
+        if (!token) {
+          const error = new Error("No hay una sesión activa. Inicia sesión nuevamente.");
+          error.code = "NO_SESSION";
+          throw error;
+        }
+
+        const configuredBase = (window.API_BASE_URL || window.__API_BASE_URL__ || "").trim();
+        let resolvedBase = configuredBase;
+
+        if (!resolvedBase) {
+          const protocol = window.location.protocol || "http:";
+          const hostname = window.location.hostname || "localhost";
+          const port = window.location.port;
+
+          if (port && port !== "3000") {
+            resolvedBase = protocol + "//" + hostname + ":3000";
+          } else if (port) {
+            resolvedBase = protocol + "//" + hostname + ":" + port;
+          } else {
+            resolvedBase = protocol + "//" + hostname + ":3000";
+          }
+        }
+
+        const baseWithoutSlash = resolvedBase ? resolvedBase.replace(/\/$/, "") : "";
+        const endpoint = baseWithoutSlash ? baseWithoutSlash + "/api/me/password" : "/api/me/password";
+
+        const resp = await fetch(endpoint, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token
+          },
+          body: JSON.stringify({ currentPassword, newPassword })
+        });
+
+        let data = {};
+        try {
+          data = await resp.json();
+        } catch {
+          data = {};
+        }
+
+        if (!resp.ok) {
+          const error = new Error(data.message || "No se pudo actualizar la contraseña.");
+          error.data = data;
+          error.status = resp.status;
+          throw error;
+        }
+
+        return data;
+      }
+
+      async function handleSubmit(event){
+        event.preventDefault();
+        const snapshot = getFormSnapshot();
+        const errors = [];
+        if (!snapshot.name) errors.push("Debes indicar un nombre.");
+        if (!snapshot.email) errors.push("Debes indicar un correo.");
+
+        const wantsPasswordChange = Boolean(togglePassword && togglePassword.checked);
+        let passwordPayload = null;
+
+        if (wantsPasswordChange) {
+          const currentValue = (inputs.currentPassword?.value || "").trim();
+          const newValue = (inputs.newPassword?.value || "").trim();
+          const confirmValue = (inputs.confirmPassword?.value || "").trim();
+
+          if (!currentValue) {
+            errors.push("Debes ingresar tu contraseña actual.");
+          }
+
+          if (!newValue || newValue.length < 6) {
+            errors.push("La nueva contraseña debe tener al menos 6 caracteres.");
+          }
+
+          if (currentValue && newValue && newValue === currentValue) {
+            errors.push("La nueva contraseña debe ser diferente a la actual.");
+          }
+
+          if (newValue !== confirmValue) {
+            errors.push("Las contraseñas no coinciden.");
+          }
+
+          passwordPayload = { current: currentValue, next: newValue };
+        }
+
+        if (errors.length) {
+          showFeedback(errors[0], "danger");
+          return;
+        }
+
+        const updates = {
+          name: snapshot.name,
+          email: snapshot.email,
+          phone: snapshot.phone,
+          company: snapshot.company,
+          docType: snapshot.docType,
+          docNumber: snapshot.docNumber
+        };
+
+        let passwordMessage = null;
+        if (wantsPasswordChange && passwordPayload) {
+          try {
+            const result = await updatePasswordOnServer(passwordPayload.current, passwordPayload.next);
+            passwordMessage = result && result.message ? result.message : null;
+          } catch (error) {
+            console.error('Error al actualizar contraseña:', error);
+            const message = (error && error.data && error.data.message) || error.message || "Error al actualizar la contraseña.";
+            showFeedback(message, "danger");
+            return;
+          }
+        }
+
+        // Continuar con la actualización del usuario actual
+        saveUser(updates);
+        
+        registerActivity({
+          title: wantsPasswordChange ? "Credenciales actualizadas" : "Perfil actualizado",
+          detail: wantsPasswordChange ? "Actualizaste tus datos y cambiaste tu contraseña." : "Guardaste cambios en tus datos básicos.",
+          icon: wantsPasswordChange ? "fa-lock" : "fa-user-cog"
+        });
+
+        const successMessage = wantsPasswordChange
+          ? (passwordMessage || "Datos y contraseña actualizados correctamente.")
+          : "Tus cambios se guardaron correctamente.";
+        showFeedback(successMessage);
+
+        fillForm(currentUser);
+      }
+
+      function handleFormChange(){
+        toggleUnsaved(true);
+        const snapshot = getFormSnapshot();
+        updateProfileSummary(snapshot);
+        updatePreferencesSummary(snapshot);
+      }
+
+      function handleReset(){
+        fillForm(currentUser);
+        updateProfileSummary(currentUser);
+        updatePreferencesSummary(currentUser);
+        showFeedback("Se descartaron los cambios sin guardar.", "info");
+      }
+
+      function handleAddAddress(){
+        const label = window.prompt("Nombre de la direccion", "Bodega principal");
+        if (label === null) return;
+        const address = window.prompt("Direccion completa", currentUser.address || "");
+        if (address === null || !address.trim()) return;
+        if (!Array.isArray(currentUser.addresses)) {
+          currentUser.addresses = [];
+        }
+        currentUser.addresses.unshift({
+          label: label.trim() || "Direccion",
+          address: address.trim(),
+          isDefault: currentUser.addresses.length === 0
+        });
+        if (currentUser.addresses[0].isDefault) {
+          currentUser.address = currentUser.addresses[0].address;
+        }
+        saveUser({ addresses: currentUser.addresses, address: currentUser.address });
+        showFeedback("Nueva direccion guardada.");
+        fillForm(currentUser);
+      }
+
+      function handleAddressesClick(event){
+        const target = event.target;
+        if (!target.dataset || !target.dataset.action) return;
+        const index = Number(target.dataset.index);
+        if (Number.isNaN(index) || index < 0) return;
+        if (target.dataset.action === "set-default") {
+          currentUser.addresses = (currentUser.addresses || []).map((addr, idx) => ({
+            ...addr,
+            isDefault: idx === index
+          }));
+          const defaultAddress = currentUser.addresses[index];
+          if (defaultAddress && defaultAddress.address) {
+            currentUser.address = defaultAddress.address;
+          }
+          saveUser({ addresses: currentUser.addresses, address: currentUser.address });
+          showFeedback("Direccion marcada como predeterminada.");
+          fillForm(currentUser);
+        } else if (target.dataset.action === "remove") {
+          if (!Array.isArray(currentUser.addresses)) return;
+          currentUser.addresses.splice(index, 1);
+          if (!currentUser.addresses.length) {
+            currentUser.address = "";
+          } else if (!currentUser.addresses.some(item => item.isDefault)) {
+            currentUser.addresses[0].isDefault = true;
+            currentUser.address = currentUser.addresses[0].address;
+          }
+          saveUser({ addresses: currentUser.addresses, address: currentUser.address });
+          showFeedback("Direccion eliminada.", "info");
+          fillForm(currentUser);
+        }
+      }
+
+      function handleLogout(event){
+        event.preventDefault();
+        try {
+          localStorage.removeItem("user");
+        } catch (err) {}
+        alert("Has cerrado sesion correctamente.");
+        window.location.href = "index.html";
+      }
+
+      function handlePasswordToggle(){
+        if (!togglePassword) return;
+        const isChecked = togglePassword.checked;
+        setPasswordBox(isChecked);
+        if (isChecked) {
+          toggleUnsaved(true);
+        } else {
+          const snapshot = getFormSnapshot();
+          const changed = snapshot.name !== (currentUser.name || "") ||
+            snapshot.email !== (currentUser.email || "") ||
+            snapshot.phone !== (currentUser.phone || "") ||
+            snapshot.company !== (currentUser.company || "") ||
+            snapshot.docType !== (currentUser.docType || "") ||
+            snapshot.docNumber !== (currentUser.docNumber || "");
+          toggleUnsaved(changed);
+        }
+      }
+      function handleChipClick(){
+        form.scrollIntoView({ behavior: "smooth" });
+      }
+
+      function initialize(){
+        updateUserChip(currentUser);
+        updateProfileSummary(currentUser);
+        updatePreferencesSummary(currentUser);
+        updateTierBadge(currentUser);
+        updateLastUpdated(currentUser);
+        renderActivity(currentUser);
+        renderAddresses(currentUser);
+        computeMetrics();
+        fillForm(currentUser);
+      }
+
+      form.addEventListener("submit", handleSubmit);
+      form.addEventListener("input", handleFormChange);
+      form.addEventListener("change", handleFormChange);
+      btnReset.addEventListener("click", handleReset);
+      if (togglePassword) {
+        togglePassword.addEventListener("change", handlePasswordToggle);
+      }
+      btnAddAddress.addEventListener("click", handleAddAddress);
+      addressesList.addEventListener("click", handleAddressesClick);
+      userChip.addEventListener("click", handleChipClick);
+      btnLogout.addEventListener("click", handleLogout);
+
+      initialize();
+    })();
+  </script>
+</body>
+</html>

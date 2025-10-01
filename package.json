@@ -8,6 +8,10 @@
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "joi": "^18.0.1",
+<<<<<<< HEAD
+=======
+    "jsdom": "^27.0.0",
+>>>>>>> cc95a20 (Primer commit: versión final del proyecto entrega 1)
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.15.1",
     "nodemailer": "^7.0.6"

@@ -210,6 +210,7 @@
 
         <!-- Resultado cotización -->
         <div class="subhead" style="text-align:center;margin-top:16px">RESULTADO COTIZACIÓN</div>
+<<<<<<< HEAD
         <div class="quote">
           <div class="quote-row">
             <div class="quote-item"><i class="fas fa-box-open icon"></i><div><div class="muted">Tipo de producto</div><div id="q_product" style="font-weight:700">—</div></div></div>
@@ -239,6 +240,40 @@
           <button type="button" class="btn btn-success" id="finishOrNext">Confirmar</button>
         </div>
       </div>
+=======
+<div class="quote">
+  <div class="quote-row">
+    <div class="quote-item"><i class="fas fa-box-open icon"></i><div><div class="muted">Tipo de producto</div><div id="q_product" style="font-weight:700">—</div></div></div>
+    <div class="quote-item"><i class="far fa-clock icon"></i><div><div class="muted">Tiempo de entrega</div><div id="q_time" style="font-weight:700">—</div></div></div>
+    <div class="quote-item"><i class="fas fa-truck icon"></i><div><div class="muted">Tipo de transporte</div><div id="q_transport" style="font-weight:700">Terrestre</div></div></div>
+  </div>
+
+  <div class="subhead" style="margin-top:14px">DATOS DEL DESTINATARIO</div>
+  <div class="recipient">
+    <div><div class="muted">Nombre</div><div id="q_dest_name" style="font-weight:700">—</div></div>
+    <div><div class="muted">Teléfono</div><div id="q_dest_phone" style="font-weight:700">—</div></div>
+    <div><div class="muted">Dirección</div><div id="q_dest_address" style="font-weight:700;word-break:break-word">—</div></div>
+    <div><div class="muted">Ciudad de destino</div><div id="q_dest_city" class="badge">—</div></div>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--line);margin:14px 0">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div class="muted">
+      Distancia estimada: <span id="q_distance">—</span> ·
+      Peso total: <span id="q_weight">—</span>
+    </div>
+    <div class="price" id="q_price">$ —</div>
+  </div>
+  <div class="muted" id="q_hint" style="margin-top:6px"></div>
+</div> 
+
+<div class="actions" style="margin-top:16px">
+  <button type="button" class="btn btn-soft" id="back3">Atrás</button>
+  <button type="button" class="btn btn-success" id="finishOrNext">Confirmar</button>
+</div>
+</div>
+
+>>>>>>> cc95a20 (Primer commit: versión final del proyecto entrega 1)
 
       <!-- PASO 4 Pago - SOLO PSE -->
       <div class="card hidden" id="step4">
@@ -313,7 +348,11 @@
     const hide = sel => $(sel).classList.add('hidden');
 
     function goToPanel(rid){
+<<<<<<< HEAD
       const url = `${window.location.origin}/panelRemitente.html?rid=${encodeURIComponent(rid)}`;
+=======
+      const url = `${window.location.origin}/panelRemitente.html`;
+>>>>>>> cc95a20 (Primer commit: versión final del proyecto entrega 1)
       console.log('➡️ Redirigiendo a:', url);
       window.location.replace(url);
     }
@@ -553,13 +592,25 @@
           return;
         }
         window.__RECOLECCION_ID__ = data.recoleccion_id;
+<<<<<<< HEAD
+=======
+        window.__NUMERO_GUIA__ = data.numero_guia || null;
+
+        const guideEl = document.getElementById('q_guide');
+        console.log('respuesta recolecciones:', data); 
+        if (guideEl && data.numero_guia) guideEl.textContent = data.numero_guia;
+>>>>>>> cc95a20 (Primer commit: versión final del proyecto entrega 1)
 
         if ($('#payment_method').value === "En línea") {
           fillPaymentSummary();
           hide("#step3"); show("#step4"); show("#bar4"); show("#tab4"); goto(4);
         } else {
           alert("Solicitud de recolección creada ✅\nN°: " + data.recoleccion_id);
+<<<<<<< HEAD
           window.location.href = `panelRemitente.html?rid=${encodeURIComponent(data.recoleccion_id)}`;
+=======
+          window.location.href = `panelRemitente.html`;
+>>>>>>> cc95a20 (Primer commit: versión final del proyecto entrega 1)
         }
       } catch (e) {
         console.error(e);
