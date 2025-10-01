@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>LOGICODERS</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center text-white">
+                    <small><i class="fa fa-phone-alt mr-2"></i>+57 320 456 7890</small>
+                    <small class="px-3">|</small>
+                    <small><i class="fa fa-envelope mr-2"></i>logicoders@gmail.com</small>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-truck mr-2"></i>LogiCoders</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                    <a href="about.html" class="nav-item nav-link">Nosotros</a>
+                    <div class="nav-item">
+                        <a href="service.html" class="nav-item nav-link active">Service</a>
+                        <ul class="submenu">
+                            <li><a href="service.html">Servicios de Envios</a>
+                                <ul class="submenu1">
+                                    <li><a href="ServiceEnvios.html">Registro de remitente y destinatario</a></li>
+                                    <li><a href="ServicioRecoleccion.html">Recolecciones</a></li>
+                                    <li><a href="ServiciosPaquetes.html">Paquetes</a></li>
+                                    <li><a href="ServicioPagos.html">Tipos de pagos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Servicios de Seguimiento</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Consultas</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="estadoEnvio.html" class="dropdown-item">Estado del Envío</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contactanos</a>
+                </div>
+                <a href="login.html" class="btn btn-primary py-2 px-4 d-none d-lg-block">Acceso</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid mb-5">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-3">Paquetes</h1>
+            <div class="d-inline-flex align-items-center text-white">
+                <p class="m-0"><a class="text-white" href="">Home</a></p>
+                <i class="fa fa-circle px-3"></i>
+                <p class="m-0">Servicios</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Tipos de Paquetes - Inicio -->
+    <div class="container my-5">
+        <h2 class="text-center section-title mb-4">Tipos de paquetes que podemos recibir y enviar</h2>
+
+        <p class="text-center text-muted mb-4">Selecciona el tipo de paquete que vas a enviar y revisa las
+            recomendaciones y restricciones.</p>
+
+        <div class="row">
+            <!-- Documento -->
+            <div class="col-md-4 mb-4">
+                <div class="card envio-card h-100 p-3">
+                    <div class="d-flex align-items-start">
+                        <i class="fa fa-file-alt fa-2x envio-icon mr-3"></i>
+                        <div>
+                            <h5 class="mb-1">Documentos</h5>
+                            <p class="small mb-1">Papeles, facturas, contratos. Deben ir en sobre resistente.</p>
+                            <p class="small text-muted mb-1"><strong>Tamaño:</strong> A4 / <strong>Peso:</strong> ≤ 1 kg
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paquete pequeño -->
+            <div class="col-md-4 mb-4">
+                <div class="card envio-card h-100 p-3">
+                    <div class="d-flex align-items-start">
+                        <i class="fa fa-box fa-2x envio-icon mr-3"></i>
+                        <div>
+                            <h5 class="mb-1">Paquete pequeño</h5>
+                            <p class="small mb-1">Ropa, accesorios, regalos. Buen embalaje interno.</p>
+                            <p class="small text-muted mb-1"><strong>Tamaño:</strong> ≤ 40 x 40 x 40 cm /
+                                <strong>Peso:</strong> ≤ 10 kg
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mercancía/Voluminosa -->
+            <div class="col-md-4 mb-4">
+                <div class="card envio-card h-100 p-3">
+                    <div class="d-flex align-items-start">
+                        <i class="fa fa-truck fa-2x envio-icon mr-3"></i>
+                        <div>
+                            <h5 class="mb-1">Mercancía / Voluminosa</h5>
+                            <p class="small mb-1">Muebles, electrodomésticos, cajas grandes. Requiere manipulación
+                                especial.</p>
+                            <p class="small text-muted mb-1"><strong>Tamaño:</strong> > 40 cm o <strong>Peso:</strong> >
+                                10 kg</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Electrónicos -->
+            <div class="col-md-4 mb-4">
+                <div class="card envio-card h-100 p-3">
+                    <div class="d-flex align-items-start">
+                        <i class="fa fa-laptop fa-2x envio-icon mr-3"></i>
+                        <div>
+                            <h5 class="mb-1">Electrónicos</h5>
+                            <p class="small mb-1">Teléfonos, laptops, accesorios. Embalaje con protección anti-impacto.
+                            </p>
+                            <p class="small text-muted mb-1"><strong>Recomendado:</strong> batería desconectada y
+                                embalaje original.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Peligrosos (restricción) -->
+            <div class="col-md-4 mb-4">
+                <div class="card envio-card h-100 p-3">
+                    <div class="d-flex align-items-start">
+                        <i class="fa fa-skull-crossbones fa-2x envio-icon mr-3"></i>
+                        <div>
+                            <h5 class="mb-1">Prohibido / Peligrosos</h5>
+                            <p class="small mb-1">Explosivos, gases, sustancias tóxicas. No permitidos para envío
+                                estándar.</p>
+                            <p class="small text-muted mb-1"><strong>Importante:</strong> Contactar atención al cliente
+                                para opciones especiales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fragil -->
+            <div class="col-md-4 mb-4">
+                <div class="card envio-card h-100 p-3">
+                    <div class="d-flex align-items-start">
+                        <i class="fa fa-heart fa-2x envio-icon mr-3"></i>
+                        <div>
+                            <h5 class="mb-1">Frágil</h5>
+                            <p class="small mb-1">Cristalería, cerámica. Empaque con material amortiguador obligatorio.
+                            </p>
+                            <p class="small text-muted mb-1"><strong>Seguro recomendado:</strong> Sí</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- /row -->
+
+        <!-- Detalles expandibles (ocultos inicialmente) -->
+        <div id="detalles-paquetes" class="mt-3">
+            <div id="det-doc" class="detalle d-none p-3 card mb-2">
+                <h6>Documentos — Recomendaciones</h6>
+                <ul>
+                    <li>Usar sobres reforzados o courier envelopes.</li>
+                    <li>Prohibido enviar objetos sueltos dentro de sobres finos.</li>
+                </ul>
+            </div>
+
+            <div id="det-peq" class="detalle d-none p-3 card mb-2">
+                <h6>Paquete pequeño — Recomendaciones</h6>
+                <ul>
+                    <li>Rellenar huecos con burbuja o papel para evitar movimientos.</li>
+                    <li>Sellar con cinta resistente y etiquetar correctamente.</li>
+                </ul>
+            </div>
+
+            <div id="det-vol" class="detalle d-none p-3 card mb-2">
+                <h6>Mercancía / Voluminosa — Recomendaciones</h6>
+                <ul>
+                    <li>Medir y pesar antes del retiro; puede tener recargos por volumen.</li>
+                    <li>Requiere coordinación de despacho y camión especial.</li>
+                </ul>
+            </div>
+
+            <div id="det-elec" class="detalle d-none p-3 card mb-2">
+                <h6>Electrónicos — Recomendaciones</h6>
+                <ul>
+                    <li>Quitar baterías cuando sea posible; embalar con espuma.</li>
+                    <li>Documentar estado con fotos antes del envío.</li>
+                </ul>
+            </div>
+
+            <div id="det-pel" class="detalle d-none p-3 card mb-2">
+                <h6>Peligrosos — Restricciones</h6>
+                <p>No se admiten en la operación estándar. Para transporte especial consultar con atención al cliente.
+                </p>
+            </div>
+
+            <div id="det-frag" class="detalle d-none p-3 card mb-2">
+                <h6>Frágil — Recomendaciones</h6>
+                <ul>
+                    <li>Usar doble caja, material amortiguador y etiqueta FRÁGIL visible.</li>
+                    <li>Contratar seguro adicional si el valor es alto.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <h2>Elige el tipo de envío</h2>
+    <br><br>
+
+    <div class="planes">
+        <div class="plan">
+            <h1 class="precio">Desde $12.900</h1>
+            <p class="titulo">Básico · Documentos</p>
+            <div class="caracteristicas">
+                <div class="chip">Hasta 1 kg</div>
+                <div class="chip">35×25×5 cm</div>
+                <div class="chip">Urbano 24–48 h</div>
+                <div class="chip">Rastreo en línea</div>
+                <div class="chip">Seguro $100.000</div>
+                <div class="chip">Recolección opcional (+$3.000)</div>
+            </div>
+            <a href="#" class="btn">Seleccionar</a>
+        </div>
+
+        <!-- Plan Premium -->
+        <div class="plan">
+            <h1 class="precio">Desde $19.900</h1>
+            <p class="titulo">Premium · Estándar</p>
+            <div class="caracteristicas">
+                <div class="chip">Hasta 5 kg</div>
+                <div class="chip">40×30×30 cm</div>
+                <div class="chip">Urbano/Metro 24–72 h</div>
+                <div class="chip">Recolección incluida</div>
+                <div class="chip">2 intentos de entrega</div>
+                <div class="chip">Seguro $300.000</div>
+            </div>
+            <a href="#" class="btn">Seleccionar</a>
+        </div>
+
+        <!-- Plan Business -->
+        <div class="plan">
+            <h1 class="precio">Desde $39.900</h1>
+            <p class="titulo">Business · Voluminoso</p>
+            <div class="caracteristicas">
+                <div class="chip">Hasta 30 kg</div>
+                <div class="chip">120×60×60 cm</div>
+                <div class="chip">Cobertura nacional</div>
+                <div class="chip">Programación por franja</div>
+                <div class="chip">Prioridad en ruta</div>
+                <div class="chip">Seguro $1.000.000</div>
+            </div>
+            <a href="#" class="btn">Seleccionar</a>
+        </div>
+
+    </div>
+
+    <br>
+    <br>
+    <h2>Formulario de Cotización</h2>
+    <br>
+    <br>
+
+    <div class="contenedor">
+
+        <!-- Formulario -->
+        <div class="formulario">
+            <form>
+                <label for="origen">Ciudad de origen</label>
+                <input type="text" id="origen" name="origen" placeholder="Ej: Bogotá">
+
+                <label for="destino">Ciudad de destino</label>
+                <input type="text" id="destino" name="destino" placeholder="Ej: Medellín">
+
+                <label for="peso">Peso (kg)</label>
+                <input type="number" id="peso" name="peso" placeholder="Ej: 5">
+
+                <label for="dimensiones">Dimensiones (cm)</label>
+                <input type="text" id="dimensiones" name="dimensiones" placeholder="Ej: 40x30x20">
+
+                <label for="tipo">Tipo de envío</label>
+                <select id="tipo" name="tipo">
+                    <option>Básico · Documentos</option>
+                    <option>Premium · Estándar</option>
+                    <option>Business · Voluminoso</option>
+                </select>
+
+                <label for="comentarios">Comentarios adicionales</label>
+                <textarea id="comentarios" name="comentarios" rows="3"
+                    placeholder="Escribe detalles adicionales..."></textarea>
+
+                <button type="submit" class="enviar">Cotizar</button>
+            </form>
+        </div>
+
+        <!-- Imagen -->
+        <div class="imagen">
+            <img src="img/cotizar1.png" alt="Servicio de envíos">
+        </div>
+
+    </div>
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-7 col-md-6">
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Contáctanos</h3>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>Calle 45 #8-14, Chapinero, Bogotá, Colombia</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+57 320 456 7890</p>
+                        <p><i class="fa fa-envelope mr-2"></i>logicoders@gmail.com</p>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Enlaces Rápidos</h3>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Inicio</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Sobre Nosotros</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Servicios</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pricing Plan</a>
+                            <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contactanos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">Boletín Informativo</h3>
+                <p>Suscríbete y recibe noticias, consejos de envíos y actualizaciones de LogiCoders directamente en tu
+                    correo.</p>
+                <div class="w-100">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-light" style="padding: 30px;"
+                            placeholder="Tu correo electrónico">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary px-4">Suscribirme</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+        style="border-color: #3E3E4E !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">2025 LogiCoders</a>. Todos los derechos reservados.
+
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    Diseñado por Equipo LogiCoders.
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-md-right">
+                <ul class="nav d-inline-flex">
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Politicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Terminos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Preguntas Frecuentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Ayuda</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
