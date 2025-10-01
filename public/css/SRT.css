@@ -1,0 +1,121 @@
+/* style.css */
+body,
+html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #1a1a1a;
+}
+
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #c4c4c4 0%, #ff8c00 100%);
+}
+
+.auth-card {
+    background: #1f1f1f;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+.auth-head {
+    background: linear-gradient(135deg, #ff8c00 0%, #ff6a00 100%);
+    color: white;
+    text-align: center;
+    padding: 40px 30px;
+}
+
+.logo-badge {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 140, 0, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 30px;
+}
+
+.auth-body {
+    padding: 40px;
+    color: #fff;
+}
+
+.auth-body h1 {
+    color: #FFA500;
+    margin-bottom: 10px;
+}
+
+.auth-body p {
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #FFA500;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    padding: 0 20px;
+    background: #1f1f1f;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #FF8C00;
+    box-shadow: 0 0 0 0.2rem rgba(255, 140, 0, 0.25);
+}
+
+select.form-control {
+    cursor: pointer;
+    background: #1f1f1f;
+    color: #fff;
+}
+
+.btn-brand {
+    background: linear-gradient(135deg, #FF8C00 0%, #FF6A00 100%);
+    border: none;
+    height: 50px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.btn-brand:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
+}
+
+.container-fluid.bg-dark {
+    background: #000;
+    color: #FFA500;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.navbar-custom {
+    background-color: orange;
+    color: white;
+}
+
+.logo-naranja {
+    color: orange;
+    /* Cambia el color del texto y el ícono */
+}
