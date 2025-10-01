@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>LOGICODERS</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/logo.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center text-white">
+                    <small><i class="fa fa-phone-alt mr-2"></i>+57 320 456 7890</small>
+                    <small class="px-3">|</small>
+                    <small><i class="fa fa-envelope mr-2"></i>logicoders@gmail.com</small>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-truck mr-2"></i>LogiCoders</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                    <a href="about.html" class="nav-item nav-link">Nosotros</a>
+                    <div class="nav-item">
+                        <a href="service.html" class="nav-item nav-link ">Service</a>
+                        <ul class="submenu">
+                            <li><a href="service.html">Servicios de Envios</a>
+                                <ul class="submenu1">
+                                    <li><a href="ServiceEnvios.html">Registro de remitente y destinatario</a></li>
+                                    <li><a href="ServicioRecoleccion.html">Recolecciones</a></li>
+                                    <li><a href="ServiciosPaquetes.html">Paquetes</a></li>
+                                    <li><a href="ServicioPagos.html">Tipos de pagos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Servicios de Seguimiento</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Consultas</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="estadoEnvio.html" class="dropdown-item">Estado del Envío</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contactanos</a>
+                </div>
+                <a  id="loginBtn" href="login.html" class="btn btn-primary py-2 px-4 d-none d-lg-block">Acceso</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid mb-5">
+        <div class="container text-center py-5">
+            <h1 class="text-primary mb-4">Gestión de Encomiendas Rápida y Segura</h1>
+            <h1 class="text-white display-3 mb-5">Recolección y entrega de paquetes</h1>
+            <div class="mx-auto" style="width: 100%; max-width: 600px;">
+                <div class="input-group">
+                    <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Ingrese su número de guía">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary px-3">Rastrear envío</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 pb-4 pb-lg-0">
+                    <img class="img-fluid w-100" src="img/imagen1.png" alt="">
+                    <div class="bg-primary text-dark text-center p-4">
+                        <h3 class="m-0">20+ Años de Experiencia</h3>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <h6 class="text-primary text-uppercase font-weight-bold">Quiénes Somos</h6>
+                    <h1 class="mb-4">Tu aliado en la gestión de encomiendas en Colombia</h1>
+                    <p class="mb-4">En LogiCoders ofrecemos una plataforma web innovadora para la recolección, seguimiento y entrega de paquetes en Colombia.
+Nuestro objetivo es optimizar el proceso logístico, conectando remitentes, recolectores y destinatarios a través de un sistema ágil, seguro y en tiempo real.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Video Modal -->
+        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>        
+                        <!-- 16:9 aspect ratio -->
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!--  Quote Request Start -->
+    <div class="container-fluid bg-secondary my-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 py-5 py-lg-0">
+                    <h6 class="text-primary text-uppercase font-weight-bold">Solicita tu envío</h6>
+                    <h1 class="mb-4">Cotiza y programa tu encomienda en segundos</h1>
+                    <p class="mb-4">Completa el formulario y recibe una cotización inmediata para tus envíos.
+                     Podrás solicitar la recolección de tu paquete a domicilio o llevarlo a un punto de atención</p>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h1 class="text-primary mb-2" data-toggle="counter-up">+50</h1>
+                            <h6 class="font-weight-bold mb-4">Recolectores activos</h6>
+                        </div>
+                        <div class="col-sm-4">
+                            <h1 class="text-primary mb-2" data-toggle="counter-up">+200</h1>
+                            <h6 class="font-weight-bold mb-4">Envios gestionados</h6>
+                        </div>
+                        <div class="col-sm-4">
+                            <h1 class="text-primary mb-2" data-toggle="counter-up">100</h1>
+                            <h6 class="font-weight-bold mb-4">Seguimiento en tiempo real</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="bg-primary py-5 px-4 px-sm-5">
+                        <form class="py-5">
+                            <div class="form-group">
+                                <input type="text" class="form-control border-0 p-4" placeholder="Nombre completo" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control border-0 p-4" placeholder="correo electrónico" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <select class="custom-select border-0 px-4" style="height: 47px;">
+                                    <option selected>Selecciona un servicio</option>
+                                    <option value="1">Documentos</option>
+                                    <option value="2">Paquete estándar</option>
+                                    <option value="3">Paquete voluminoso</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button class="btn btn-dark btn-block border-0 py-3" type="submit">Solicitar envío</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quote Request Start -->
+
+
+    <!-- Services Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <h6 class="text-primary text-uppercase font-weight-bold">Nuestros Servicios</h6>
+                <h1 class="mb-4"></h1>
+            </div>
+            <div class="row pb-3">
+                <div class="col-lg-3 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                       <i class="fa fa-2x fa-truck text-dark pr-3"></i>
+                        <h6 class="text-white font-weight-medium m-0">Recolección a Domicilio</h6>
+                    </div>
+                    <p>Solicita la recolección de tu encomienda desde la plataforma y un recolector irá a tu domicilio en el horario programado</p>
+                    <a class="border-bottom text-decoration-none" href="login.html">Solicitar ahora</a>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                        <i class="fa fa-2x fa-file-alt text-dark pr-3"></i>
+                        <h6 class="text-white font-weight-medium m-0">Envío de Documentos</h6>
+                    </div>
+                    <p>La mejor opción para sobres, cartas y trámites importantes. Servicio rápido, seguro y con confirmación de entrega.</p>
+                    <a class="border-bottom text-decoration-none" href="login.html">Cotizar envío</a>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                       <i class="fa fa-2x fa-box text-dark pr-3"></i>
+                        <h6 class="text-white font-weight-medium m-0">Paquetería Estándar</h6>
+                    </div>
+                    <p>Envía paquetes medianos de manera confiable. Ideal para ropa, artículos personales o productos comerciales, con rastreo en línea</p>
+                    <a class="border-bottom text-decoration-none" href="login.html">Rastrear paquete</a>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                       <i class="fa fa-2x fa-warehouse text-dark pr-3"></i>
+                        <h6 class="text-white font-weight-medium m-0">Envíos Voluminosos</h6>
+                    </div>
+                    <p>Soluciones para el transporte de cargas grandes o pesadas. Optimización de rutas para mayor rapidez y eficiencia.</p>
+                    <a class="border-bottom text-decoration-none" href="login.html">Más información</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+
+    <!-- Features Start -->
+    <div class="container-fluid bg-secondary my-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <img class="img-fluid w-100" src="img/imagen2.png" alt="">
+                </div>
+                <div class="col-lg-7 py-5 py-lg-0"><br>
+                    <h6 class="text-primary text-uppercase font-weight-bold">¿Por qué elegirnos?</h6>
+                    <h1 class="mb-4">Envíos rápidos, seguros y con seguimiento en tiempo real</h1>
+                    <p class="mb-4">Optimizamos la recolección y entrega de paquetes con rutas inteligentes y geolocalización. Conecta remitentes, recolectores y destinatarios desde una sola plataforma.</p>
+                    <ul class="list-inline">
+                        <li><h6><i class="far fa-dot-circle text-primary mr-3"></i>Cobertura urbana y nacional</h6>
+                        <li><h6><i class="far fa-dot-circle text-primary mr-3"></i>Recolección a domicilio programada</h6></li>
+                        <li><h6><i class="far fa-dot-circle text-primary mr-3"></i>Rastreo en tiempo real</h6></li>
+                         <li><h6><i class="far fa-dot-circle text-primary mr-3"></i>Soporte 7/7</h6></li>
+                    </ul>
+                    <a href="" class="btn btn-primary mt-3 py-2 px-4">Solicitar recolección</a>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Features End -->
+
+
+    <!-- Pricing Plan Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <h6 class="text-primary text-uppercase font-weight-bold">Planes y Tarifas</h6>
+                <h1 class="mb-4">Elige el tipo de envío</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-5">
+                    <div class="bg-secondary">
+                        <div class="text-center p-4">
+                             <div class="display-4 font-weight-bold mb-1">Desde $12.900</div>
+                             <div class="text-muted mb-3">por envío</div>
+                        </div>
+                        <div class="bg-primary text-center p-4">
+                            <h3 class="m-0">Básico · Documentos</h3>
+                        </div>
+                        <div class="d-flex flex-column align-items-center py-4">
+                            <li>Hasta <b>1 kg</b> · 35×25×5 cm</li>
+                             <li>Urbano · Entrega <b>24–48 h</b></li>
+                             <li>Rastreo en línea</li>
+                            <li>Seguro básico <b>$100.000</b></li>
+                            <li>Recolección <b>opcional</b> (+$3.000)</li>
+                            <a href="" class="btn btn-primary py-2 px-4 my-2">Cotizar Documentos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="bg-secondary">
+                        <div class="text-center p-4">
+                                  <div class="display-4 font-weight-bold mb-1">Desde $19.900</div>
+                                  <div class="text-muted mb-3">por envío</div>
+                        </div>
+                        <div class="bg-primary text-center p-4">
+                            <h3 class="m-0">Premium · Estándar</h3>
+                        </div>
+                        <div class="d-flex flex-column align-items-center py-4">
+                              <li>Hasta <b>5 kg</b> · 40×30×30 cm</li>
+                              <li>Urbano/Metro · <b>24–72 h</b></li>
+                              <li><b>Recolección incluida</b></li>
+                              <li>2 intentos de entrega</li>
+                              <li>Seguro <b>$300.000</b></li>
+                            <a href="" class="btn btn-primary py-2 px-4 my-2">Cotizar Paquete</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="bg-secondary">
+                        <div class="text-center p-4">
+                            <div class="display-4 font-weight-bold mb-1">Desde $39.900</div>
+                            <div class="text-muted mb-3">por envío</div>
+                        </div>
+                        <div class="bg-primary text-center p-4">
+                            <h3 class="m-0">Business · Voluminoso</h3>
+                        </div>
+                        <div class="d-flex flex-column align-items-center py-4">
+                             <li>Hasta <b>30 kg</b> o 120×60×60 cm</li>
+                             <li><b>Cobertura nacional</b></li>
+                             <li>Programación por franja</li>
+                             <li>Prioridad en ruta</li>
+                             <li>Seguro <b>$1.000.000</b></li>
+                            <a href="" class="btn btn-primary py-2 px-4 my-2">Cotizar Voluminoso</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pricing Plan End -->
+
+
+  <!-- Team Start -->
+<div class="container-fluid pt-5">
+    <div class="container">
+        <div class="text-center pb-2">
+            <h6 class="text-primary text-uppercase font-weight-bold">Nuestro Equipo de Logística</h6>
+            <h1 class="mb-4">Experiencia, compromiso y servicio en cada paquete.</h1>
+        </div>
+        <div class="row">
+            <!-- Juan Pérez -->
+            <div class="col-lg-3 col-md-6">
+                <div class="team card position-relative overflow-hidden border-0 mb-5">
+                    <img class="card-img-top" src="img/juan.png" alt="">
+                    <div class="card-body text-center p-0">
+                        <div class="team-text d-flex flex-column justify-content-center bg-secondary">
+                            <h5 class="font-weight-bold">Juan Pérez</h5>
+                            <span>Líder de Recolección</span>
+                        </div>
+                        <!-- Aparece al pasar el mouse -->
+                        <div class="team-social d-flex flex-column align-items-start justify-content-center bg-primary text-white p-3">
+                            <ul class="list-unstyled mb-0">
+                                <li><i class="fa fa-truck mr-2"></i> Coordinación de recolectores</li>
+                                <li><i class="fa fa-route mr-2"></i> Optimización de rutas urbanas</li>
+                                <li><i class="fa fa-clock mr-2"></i> Supervisión de entregas puntuales</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- María Rodríguez -->
+            <div class="col-lg-3 col-md-6">
+                <div class="team card position-relative overflow-hidden border-0 mb-5">
+                    <img class="card-img-top" src="img/maria.png" alt="">
+                    <div class="card-body text-center p-0">
+                        <div class="team-text d-flex flex-column justify-content-center bg-secondary">
+                            <h5 class="font-weight-bold">María Rodríguez</h5>
+                            <span>Operadora de Plataforma</span>
+                        </div>
+                        <div class="team-social d-flex flex-column align-items-start justify-content-center bg-primary text-white p-3">
+                            <ul class="list-unstyled mb-0">
+                                <li><i class="fa fa-laptop mr-2"></i> Gestión de solicitudes en línea</li>
+                                <li><i class="fa fa-headset mr-2"></i> Atención al cliente</li>
+                                <li><i class="fa fa-check mr-2"></i> Validación de envíos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Carlos Gómez -->
+            <div class="col-lg-3 col-md-6">
+                <div class="team card position-relative overflow-hidden border-0 mb-5">
+                    <img class="card-img-top" src="img/carlos.png" alt="">
+                    <div class="card-body text-center p-0">
+                        <div class="team-text d-flex flex-column justify-content-center bg-secondary">
+                            <h5 class="font-weight-bold">Carlos Gómez</h5>
+                            <span>Recolector Senior</span>
+                        </div>
+                        <div class="team-social d-flex flex-column align-items-start justify-content-center bg-primary text-white p-3">
+                            <ul class="list-unstyled mb-0">
+                                <li><i class="fa fa-box mr-2"></i> Manejo de paquetes frágiles</li>
+                                <li><i class="fa fa-biking mr-2"></i> Entregas en zonas de alta demanda</li>
+                                <li><i class="fa fa-shield-alt mr-2"></i> Protocolos de seguridad</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Laura Fernández -->
+            <div class="col-lg-3 col-md-6">
+                <div class="team card position-relative overflow-hidden border-0 mb-5">
+                    <img class="card-img-top" src="img/laura.png" alt="">
+                    <div class="card-body text-center p-0">
+                        <div class="team-text d-flex flex-column justify-content-center bg-secondary">
+                            <h5 class="font-weight-bold">Laura Fernández</h5>
+                            <span>Coordinadora de Distribución</span>
+                        </div>
+                        <div class="team-social d-flex flex-column align-items-start justify-content-center bg-primary text-white p-3">
+                            <ul class="list-unstyled mb-0">
+                                <li><i class="fa fa-warehouse mr-2"></i> Supervisión de centros de acopio</li>
+                                <li><i class="fa fa-dolly-flatbed mr-2"></i> Clasificación y distribución</li>
+                                <li><i class="fa fa-route mr-2"></i> Asignación de recursos logísticos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <h6 class="text-primary text-uppercase font-weight-bold">Testimonios</h6>
+                <h1 class="mb-4">Lo que dicen nuestros clientes</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel">
+                <div class="position-relative bg-secondary p-4">
+                    <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid rounded-circle" src="img/ana.png" style="width: 60px; height: 60px;" alt="">
+                        <div class="ml-3">
+                            <h6 class="font-weight-semi-bold m-0">Ana Torres</h6>
+                            <small>- Emprendedora (Bogotá)</small>
+                        </div>
+                    </div>
+                    <p class="m-0">Programo la recolección desde la web y en menos de una hora pasan por mis paquetes. Con el rastreo en tiempo real mis clientes quedan tranquilos</p>
+                </div>
+                <div class="position-relative bg-secondary p-4">
+                    <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid rounded-circle" src="img/julian.png" style="width: 60px; height: 60px;" alt="">
+                        <div class="ml-3">
+                            <h6 class="font-weight-semi-bold m-0">Julián Méndez</h6>
+                            <small>- Coord. de Logística, Pyme retail (Medellín)</small>
+                        </div>
+                    </div>
+                    <p class="m-0">Reducimos tiempos de entrega a 24–48 h en rutas urbanas. La asignación de recolectores y las notificaciones automáticas nos ahorran llamadas.</p>
+                </div>
+                <div class="position-relative bg-secondary p-4">
+                    <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid rounded-circle" src="img/laura1.png" style="width: 60px; height: 60px;" alt="">
+                        <div class="ml-3">
+                            <h6 class="font-weight-semi-bold m-0">Laura Castaño</h6>
+                            <small>- Tienda online de accesorios (Cali)</small>
+                        </div>
+                    </div>
+                    <p class="m-0">Antes teníamos pérdidas por paquetes mal gestionados. Con LogiCoders bajaron las incidencias y subieron las reseñas positivas</p>
+                </div>
+                <div class="position-relative bg-secondary p-4">
+                    <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid rounded-circle" src="img/camilo.png" style="width: 60px; height: 60px;" alt="">
+                        <div class="ml-3">
+                            <h6 class="font-weight-semi-bold m-0">Camilo Rojas</h6>
+                            <small>- Mensajería jurídica (Bucaramanga)</small>
+                        </div>
+                    </div>
+                    <p class="m-0">Para documentos urgentes es ideal: cadena de custodia clara, comprobante digital y confirmación de entrega al instante</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Blog Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <h6 class="text-primary text-uppercase font-weight-bold">Nuestro Blog</h6>
+                <h1 class="mb-4">Últimas publicaciones sobre envíos y logística.</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-5">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/img4.jpg" alt="">
+                        <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
+                            style="width: 60px; height: 60px; bottom: -30px; right: 30px;">
+                            <h4 class="font-weight-bold mb-n1">05</h4>
+                            <small class="text-white text-uppercase">Marzo</small>
+                        </div>
+                    </div>
+                    <div class="bg-secondary" style="padding: 30px;">
+                        <div class="d-flex mb-3">
+                            <div class="d-flex align-items-center">
+                                <img class="rounded-circle" style="width: 40px; height: 40px;" src="img/logo.png" alt="">
+                                <a class="text-muted ml-2" href="">Equipo LogiCoders</a>
+                            </div>
+                            <div class="d-flex align-items-center ml-4">
+                                <i class="far fa-bookmark text-primary"></i>
+                                <a class="text-muted ml-2" href="">Web Design</a>
+                            </div>
+                        </div>
+                        <h4 class="font-weight-bold mb-3">Cómo empacar tus encomiendas para evitar daños</h4>
+                        <p>Aprende las mejores prácticas para embalar cajas, sobres y productos frágiles y asegura que lleguen en perfecto estado.</p>
+                        <a class="border-bottom border-primary text-uppercase text-decoration-none" href="">Leer más <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-5">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/img5.webp" alt="">
+                        <div class="position-absolute bg-primary d-flex flex-column align-items-center justify-content-center rounded-circle"
+                            style="width: 60px; height: 60px; bottom: -30px; right: 30px;">
+                            <h4 class="font-weight-bold mb-n1">12</h4>
+                            <small class="text-white text-uppercase">Marzo</small>
+                        </div>
+                    </div>
+                    <div class="bg-secondary" style="padding: 30px;">
+                        <div class="d-flex mb-3">
+                            <div class="d-flex align-items-center">
+                                <img class="rounded-circle" style="width: 40px; height: 40px;" src="img/logo.png" alt="">
+                                <a class="text-muted ml-2" href="">Equipo LogiCoders</a>
+                            </div>
+                            <div class="d-flex align-items-center ml-4">
+                                <i class="far fa-bookmark text-primary"></i>
+                                <a class="text-muted ml-2" href="">Web Design</a>
+                            </div>
+                        </div>
+                        <h4 class="font-weight-bold mb-3">Nuevas rutas de entrega en Bogotá, Medellín y Cali</h4>
+                        <p>Ampliamos nuestra cobertura con más recolectores y tiempos de entrega más rápidos para mejorar tu experiencia.</p>
+                        <a class="border-bottom border-primary text-uppercase text-decoration-none" href="">Leer Mas <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-7 col-md-6">
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Contáctanos</h3>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>Calle 45 #8-14, Chapinero, Bogotá, Colombia</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+57 320 456 7890</p>
+                        <p><i class="fa fa-envelope mr-2"></i>logicoders@gmail.com</p>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Enlaces Rápidos</h3>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Inicio</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Sobre Nosotros</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Servicios</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pricing Plan</a>
+                            <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contactanos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">Boletín Informativo</h3>
+                <p>Suscríbete y recibe noticias, consejos de envíos y actualizaciones de LogiCoders directamente en tu correo.</p>
+                <div class="w-100">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Tu correo electrónico">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary px-4">Suscribirme</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: #3E3E4E !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">2025 LogiCoders</a>. Todos los derechos reservados. 
+				
+				<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+				Diseñado por Equipo LogiCoders.
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-md-right">
+                <ul class="nav d-inline-flex">
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Politicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Terminos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Preguntas Frecuentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Ayuda</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
