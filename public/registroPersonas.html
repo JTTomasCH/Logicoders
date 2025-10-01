@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Registro - LOGICODERS</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Registro de usuarios" name="description">
+
+    <!-- Favicon -->
+    <link href="img/logo.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar (puedes dejarlo igual que en login.html) -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 px-lg-5">
+            <a href="index.html" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-truck mr-2"></i>LogiCoders</h1>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Registro Start -->
+    <section class="login-section py-5">
+        <div class="auth-wrap">
+            <div class="auth-card">
+
+                <!-- Encabezado -->
+                <div class="auth-head">
+                    <div class="logo-badge"><i class="fas fa-user-plus"></i></div>
+                    <h3 class="brand-title mb-0">LOGICODERS</h3>
+                </div>
+
+                <!-- Cuerpo -->
+                <div class="auth-body">
+                    <h1>Crear cuenta</h1>
+                    <p>Regístrate para rastrear envíos y gestionar tus paquetes.</p>
+
+                    <form id="registerForm" novalidate>
+                        <!-- Nombre -->
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Tu nombre"
+                                required>
+                            <div class="invalid-feedback">Ingresa tu nombre.</div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="tu@correo.com"
+                                required>
+                            <div class="invalid-feedback">Ingresa un correo válido.</div>
+                        </div>
+
+                        <!-- Usuario -->
+                        <div class="form-group">
+                            <label for="username">Usuario</label>
+                            <input type="text" class="form-control" id="username" name="username"
+                                placeholder="Nombre de usuario" required>
+                            <div class="invalid-feedback">Elige un usuario.</div>
+                        </div>
+
+                        <!-- Contraseña -->
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <div class="input-icon">
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="••••••••" minlength="6" required>
+                                <button class="toggle-pass" type="button" aria-label="Mostrar/ocultar contraseña">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                                <div class="invalid-feedback">Mínimo 6 caracteres.</div>
+                            </div>
+                        </div>
+
+                        <!-- Confirmar contraseña -->
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmar contraseña</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                                placeholder="Repite tu contraseña" required>
+                            <div class="invalid-feedback">Las contraseñas deben coincidir.</div>
+                        </div>
+
+                        <button class="btn btn-brand btn-block" type="submit">
+                            Registrarme
+                        </button>
+                        <div class="text-center mt-3">
+                            <p class="mb-1">¿Ya tienes cuenta?</p>
+                            <a href="login.html" class="btn btn-primary btn-block">
+                                Inicia Sesión
+                            </a>
+                        </div>
+                    </form>
+                </div>
+    </section>
+    <!-- Registro End -->
+
+    <!-- Footer (puedes copiar el mismo de login.html) -->
+    <div class="container-fluid bg-dark text-white py-3 text-center">
+        <p class="m-0">&copy; 2025 LogiCoders. Todos los derechos reservados.</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="js/register.js"></script>
