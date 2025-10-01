@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - LogiCoders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: #1f1f1f;
+            color: #fff;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background: #111;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            display: block;
+            color: #FFA500;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .sidebar a:hover {
+            background: #FF8C00;
+            color: #fff;
+        }
+        .sidebar .logo {
+            font-size: 22px;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #333;
+            margin-bottom: 20px;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 40px;
+        }
+        .card {
+            background: #2c2c2c;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            color: #FFA500;
+        }
+        .btn-action {
+            background: linear-gradient(135deg, #FF8C00 0%, #FF6A00 100%);
+            border: none;
+            color: white;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        .btn-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">LogiCoders Admin</div>
+        <a href="#" id="dashboardLink"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="registroTrabajador.html"><i class="fas fa-tachometer-alt"></i> Registrar Trabajadores</a>
+        <a href="#" id="trabajadoresLink"><i class="fas fa-users"></i> Trabajadores</a>
+        <a href="#" id="reportesLink"><i class="fas fa-chart-line"></i> Reportes</a>
+        <a href="#" id="configLink"><i class="fas fa-cogs"></i> Configuración</a>
+        <a href="index.html"><i class="fas fa-sign-out-alt"></i> Salir</a>
+    </div>
+
+    <div class="content">
+        <div id="dashboardSection" class="section">
+            <h2>Bienvenido, Administrador</h2>
+            <p>Este es tu panel de control principal.</p>
+            <div class="card">
+                <h3>Estadísticas rápidas</h3>
+                <p>Resumen de usuarios, envíos y más.</p>
+            </div>
+        </div>
+
+        
+
+        <div id="trabajadoresSection" class="section" style="display:none;">
+            <h2>Gestión de Trabajadores</h2>
+            <div class="card">
+                <h3>Lista de Trabajadores</h3>
+                <p>Aquí puedes ver y editar a los trabajadores.</p>
+            </div>
+        </div>
+
+        <div id="reportesSection" class="section" style="display:none;">
+            <h2>Reportes</h2>
+            <div class="card">
+                <h3>Estadísticas de envío</h3>
+                <p>Visualiza el rendimiento y los reportes generales.</p>
+            </div>
+        </div>
+
+        <div id="configSection" class="section" style="display:none;">
+            <h2>Configuración del Sistema</h2>
+            <div class="card">
+                <h3>Opciones Globales</h3>
+                <p>Configura los parámetros generales del sistema.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dashboardLink = document.getElementById('dashboardLink');
+        const trabajadoresLink = document.getElementById('trabajadoresLink');
+        const reportesLink = document.getElementById('reportesLink');
+        const configLink = document.getElementById('configLink');
+
+        const sections = {
+            dashboard: document.getElementById('dashboardSection'),
+            trabajadores: document.getElementById('trabajadoresSection'),
+            reportes: document.getElementById('reportesSection'),
+            config: document.getElementById('configSection')
+        };
+
+        dashboardLink.onclick = () => showSection('dashboard');
+        trabajadoresLink.onclick = () => showSection('trabajadores');
+        reportesLink.onclick = () => showSection('reportes');
+        configLink.onclick = () => showSection('config');
+
+        function showSection(sectionName) {
+            for (const key in sections) {
+                sections[key].style.display = 'none';
+            }
+            sections[sectionName].style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
