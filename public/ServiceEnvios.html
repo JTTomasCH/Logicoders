@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>LOGICODERS</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center text-white">
+                    <small><i class="fa fa-phone-alt mr-2"></i>+57 320 456 7890</small>
+                    <small class="px-3">|</small>
+                    <small><i class="fa fa-envelope mr-2"></i>logicoders@gmail.com</small>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-truck mr-2"></i>LogiCoders</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                    <a href="about.html" class="nav-item nav-link">Nosotros</a>
+                    <div class="nav-item">
+                        <a href="service.html" class="nav-item nav-link active">Service</a>
+                        <ul class="submenu">
+                            <li><a href="service.html">Servicios de Envios</a>
+                                <ul class="submenu1">
+                                    <li><a href="ServiceEnvios.html">Registro de remitente y destinatario</a></li>
+                                    <li><a href="ServicioRecoleccion.html">Recolecciones</a></li>
+                                    <li><a href="ServiciosPaquetes.html">Paquetes</a></li>
+                                    <li><a href="ServicioPagos.html">Tipos de pagos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Servicios de Seguimiento</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Consultas</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="estadoEnvio.html" class="dropdown-item">Estado del Envío</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contactanos</a>
+                </div>
+                <a href="login.html" class="btn btn-primary py-2 px-4 d-none d-lg-block">Acceso</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid mb-5">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-3">Formulario de Envios</h1>
+            <div class="d-inline-flex align-items-center text-white">
+                <p class="m-0"><a class="text-white" href="">Inicio</a></p>
+                <i class="fa fa-circle px-3"></i>
+                <p class="m-0">Servicios</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <div class="container-fluid bg-secondary my-5">
+        <div class="container justify-content-center">
+            <div class="container my-5">
+                <br>
+                <br>
+                <div class="row">
+
+                    <div class="col-md-4 mb-4">
+                        <div class="card card-gris p-4 h-100">
+                            <h4 class="text-center mb-3">Remitente</h4>
+                            <form>
+                                <div class="form-group mb-3">
+                                    <label for="remitente">Nombre Remitente</label>
+                                    <input type="text" class="form-control" id="remitente"
+                                        placeholder="Ingresa tu nombre">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="cedulaRemitente">Cédula</label>
+                                    <input type="text" class="form-control" id="cedulaRemitente"
+                                        placeholder="Número de cédula">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="direccionRemitente">Dirección</label>
+                                    <input type="text" class="form-control" id="direccionRemitente"
+                                        placeholder="Dirección completa">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="telefonoRemitente">Teléfono</label>
+                                    <input type="text" class="form-control" id="telefonoRemitente"
+                                        placeholder="Número de contacto">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="ciudadRemitente">Ciudad</label>
+                                    <input type="text" class="form-control" id="ciudadRemitente" placeholder="Ciudad">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-naranja p-4 h-100">
+                            <h4 class="text-warning text-center mb-3">Destinatario</h4>
+                            <form>
+                                <div class="form-group mb-3">
+                                    <label for="destinatario">Nombre Destinatario</label>
+                                    <input type="text" class="form-control" id="destinatario"
+                                        placeholder="Ingresa el nombre">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="cedulaDestinatario">Cédula</label>
+                                    <input type="text" class="form-control" id="cedulaDestinatario"
+                                        placeholder="Número de cédula">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="direccionDestinatario">Dirección</label>
+                                    <input type="text" class="form-control" id="direccionDestinatario"
+                                        placeholder="Dirección completa">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="telefonoDestinatario">Teléfono</label>
+                                    <input type="text" class="form-control" id="telefonoDestinatario"
+                                        placeholder="Número de contacto">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="ciudadDestinatario">Ciudad</label>
+                                    <input type="text" class="form-control" id="ciudadDestinatario"
+                                        placeholder="Ciudad">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-gris p-4 h-100">
+                            <h4 class="text-center mb-3">Información del Paquete</h4>
+                            <form>
+                                <div class="form-group mb-3">
+                                    <label for="contenido">Contenido</label>
+                                    <input type="text" class="form-control" id="contenido"
+                                        placeholder="Descripción del contenido">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="valor">Valor</label>
+                                    <input type="number" class="form-control" id="valor"
+                                        placeholder="Valor del paquete">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="peso">Peso</label>
+                                    <input type="number" step="0.01" class="form-control" id="peso"
+                                        placeholder="Peso en Kg">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="dimensiones">Dimensiones</label>
+                                    <input type="text" class="form-control" id="dimensiones"
+                                        placeholder="Largo x Ancho x Alto (cm)">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="estado">Estado</label>
+                                    <input type="text" class="form-control" id="estado"
+                                        placeholder="Estado del paquete">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="fechaCreacion">Fecha de Creación</label>
+                                    <input type="date" class="form-control" id="fechaCreacion">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-warning btn-lg">🚀 Enviar Envío</button>
+                </div>
+
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container my-5">
+        <h2 class="text-center text-primary mb-5">Caracteristica de Nuestros Servicios de Envíos</h2>
+        <div class="row align-items-center">
+
+            <div class="col-lg-8 col-md-7 mb-4 mb-md-0">
+                <div class="service-image">
+                    <img src="img/envio1.jpg" alt="Servicios de Envío" class="img-fluid rounded shadow-lg">
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-5 mb-4 mb-md-0">
+                <div class="card shadow-sm border-0 h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fa fa-user-plus fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title">Registro de Remitente y Destinatario</h5>
+                        <p class="card-text">
+                            El remitente y el destinatario deben registrarse con sus datos completos:
+                            nombre, cédula, dirección, teléfono y ciudad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-0 h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fa fa-money-bill-wave fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">Formas de Pago</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-check text-primary mr-2"></i> Contado</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i> Al Cobro</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i> Crédito</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i> Pago en Casa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-0 h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fa fa-map-marker-alt fa-3x text-danger mb-3"></i>
+                        <h5 class="card-title">Cobertura</h5>
+                        <p class="card-text">
+                            Disponibles en los municipios autorizados de acuerdo al sistema de información.
+                            Llegamos a donde más nos necesitas 🚚.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-0 h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="fa fa-truck fa-3x text-white mb-3"></i>
+                        <h4 class="card-title">Envíos Seguros</h4>
+                        <p class="card-text">Confiabilidad garantizada</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-secondary my-5">
+        <div class="container my-5">
+            <br>
+            <br>
+            <h2 class="text-center section-title mb-5">Tipos de Envíos</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card envio-card text-center p-4">
+                        <i class="fa fa-truck fa-3x envio-icon mb-3"></i>
+                        <h5 class="card-title">Envío Terrestre</h5>
+                        <p class="card-text">
+                            Ideal para envíos nacionales. Seguridad y puntualidad en todas las ciudades.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card envio-card text-center p-4">
+                        <i class="fa fa-plane fa-3x envio-icon mb-3"></i>
+                        <h5 class="card-title">Envío Aéreo</h5>
+                        <p class="card-text">
+                            La opción más rápida para entregas urgentes a nivel nacional o internacional.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card envio-card text-center p-4">
+                        <i class="fa fa-bolt fa-3x envio-icon mb-3"></i>
+                        <h5 class="card-title">Envío Express</h5>
+                        <p class="card-text">
+                            Servicio inmediato, tu paquete llega en cuestión de horas en la misma ciudad.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card envio-card text-center p-4">
+                        <i class="fa fa-globe fa-3x envio-icon mb-3"></i>
+                        <h5 class="card-title">Envío Nacional</h5>
+                        <p class="card-text">
+                            Conectamos tu negocio y envíos a las ciudades principales a nivel nacional.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-7 col-md-6">
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Contáctanos</h3>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>Calle 45 #8-14, Chapinero, Bogotá, Colombia</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+57 320 456 7890</p>
+                        <p><i class="fa fa-envelope mr-2"></i>logicoders@gmail.com</p>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Enlaces Rápidos</h3>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Inicio</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Sobre Nosotros</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Servicios</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pricing Plan</a>
+                            <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contactanos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">Boletín Informativo</h3>
+                <p>Suscríbete y recibe noticias, consejos de envíos y actualizaciones de LogiCoders directamente en tu
+                    correo.</p>
+                <div class="w-100">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-light" style="padding: 30px;"
+                            placeholder="Tu correo electrónico">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary px-4">Suscribirme</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
+        style="border-color: #3E3E4E !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">2025 LogiCoders</a>. Todos los derechos reservados.
+
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    Diseñado por Equipo LogiCoders.
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-md-right">
+                <ul class="nav d-inline-flex">
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Politicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Terminos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Preguntas Frecuentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Ayuda</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
